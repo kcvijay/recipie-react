@@ -1,0 +1,58 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+}
+
+.logo {
+  padding: 0.5rem;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+.logo a h1 {
+  font-size: 3rem;
+  margin-left: 2rem;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.logoUppercase {
+  text-transform: uppercase;
+  color: orange;
+}
+
+.nav {
+  font-family: "PT Serif", serif;
+}
+
+.nav ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.nav ul li a {
+  display: inline-flex;
+  justify-content: center;
+  padding: 1.8rem;
+  width: 150px;
+  text-decoration: none;
+  color: #fff;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+}
+
+.nav ul li a:active {
+  background-color: #555;
+}
+
+.nav ul li a:hover {
+  background-color: #666;
+}
+
+.linkSpecial {
+  background-color: green;
+}
