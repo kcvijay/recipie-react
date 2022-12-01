@@ -6,8 +6,8 @@ import classes from "../Styles/Hero.module.css";
 function Hero() {
   return (
     <div className={classes.hero}>
-      <video playsinline loop autoplay className={classes.pieVideo}>
-        <source src={require("../Assets/pie-video.webm")} type="video/webm" />
+      <video autoplay loop className={classes.pieVideo}>
+        <source src={require("../Assets/hero.mp4")} type="video/mp4" />
       </video>
       <div className={classes.heroText}>
         <h2>Recipies from the world</h2>
