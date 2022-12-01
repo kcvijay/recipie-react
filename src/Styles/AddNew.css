@@ -1,0 +1,29 @@
+.addNewWrapper {
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.ingredients-wrapper form div label,
+.addNewWrapper form div input,
+.addNewWrapper form div textarea,
+.addNewWrapper form div select {
+  display: block;
+  width: 350px;
+  height: 35px;
+  margin: 0.5rem 0 1rem 0;
+  border: 1px solid #dddddd;
+}
+
+.addNewWrapper form div textarea {
+  height: 140px;
+}
+
+.ingredients-wrapper {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ingredients-wrapper div input {
+  max-width: 150px;
+}

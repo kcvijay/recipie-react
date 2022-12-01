@@ -2,7 +2,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
+  background-color: #f2f2f2;
 }
 
 .logo {
@@ -17,7 +17,7 @@ header {
 .logo a h1 {
   font-size: 3rem;
   margin-left: 2rem;
-  color: #fff;
+  color: #333;
   text-transform: capitalize;
 }
 
@@ -38,22 +38,28 @@ header {
 .nav ul li a {
   display: inline-flex;
   justify-content: center;
-  padding: 1.8rem;
+  padding: 2rem;
   width: 150px;
   text-decoration: none;
-  color: #fff;
+  color: #333;
   text-transform: capitalize;
   transition: all 0.3s ease;
 }
 
+.nav ul li:last-child a {
+  background-color: green;
+  color: #fff;
+}
+
+.nav ul li:last-child a:hover {
+  background-color: #02ae02;
+}
+
 .nav ul li a:active {
-  background-color: #555;
+  background-color: #f2f2f2;
+  border-bottom: 2px solid #333;
 }
 
 .nav ul li a:hover {
-  background-color: #666;
-}
-
-.linkSpecial {
-  background-color: green;
+  background-color: #d6d6d6;
 }
