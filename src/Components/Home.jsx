@@ -27,7 +27,7 @@ function Home() {
             quisquam voluptas labore illum necessitatibus maiores quaerat
             commodi? Possimus dolorem unde numquam in eveniet qui.
           </div>
-          <Link to="/addnewrecipe">Browse all recipies</Link>
+          <Link to="/addnewrecipe">Add New Recipe</Link>
         </div>
 
         <div className={classes.card}>

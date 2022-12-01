@@ -1,0 +1,43 @@
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.card {
+  max-width: 400px;
+  line-height: 1.5;
+  padding: 1.5rem;
+  border-radius: 11px;
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f1f1f1;
+  transition: all 0.3s ease;
+}
+
+.card a {
+  color: orange;
+  text-decoration: none;
+  font-style: italic;
+}
+
+.cardHeader {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Yeseva One", cursive;
+}
+
+.cardBody {
+  margin: 1rem 0;
+}
+
+.card:nth-child(2) {
+  background-color: green;
+  color: #fff;
+}
+
+.card:hover {
+  box-shadow: none;
+}
