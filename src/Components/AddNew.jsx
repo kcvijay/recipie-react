@@ -5,16 +5,16 @@ import "../Styles/AddNew.css";
 function AddNew() {
   const [data, setData] = useState({
     id: "",
-    passcode: Date.now(),
     title: "",
     author: "",
     country: "",
     description: "",
-    imageLink: "",
+    image: "",
     instruction: "",
     quantity: "",
     ingredients: [{ quantity: "", ingredient: "" }],
   });
+
   const [countries, setCountries] = useState([]);
   const [val, setVal] = useState([]);
 
@@ -31,6 +31,19 @@ function AddNew() {
   const submitHandler = (e) => {
     e.preventDefault();
     axios.post("http://localhost:3001/recipes", data);
+    // window.location.reload();
+    console.log(data);
+  };
+
+  const ingredientsHandler = (e) => {
+    setData({
+      ...data, // Copying a whole field
+      ingredients: {
+        // New ingredients
+        ...data.ingredients, // with the same ingredients
+        [e.target.name]: e.target.value, // new value
+      },
+    });
   };
 
   useEffect(() => {
@@ -42,8 +55,8 @@ function AddNew() {
   const inputWrapper = (
     <div
       className="ingredients-wrapper"
-      onChange={changeHandler}
       name="ingredients"
+      onChange={ingredientsHandler}
     >
       <div>
         <label htmlFor="quantity">Quantity</label>
@@ -57,26 +70,27 @@ function AddNew() {
   );
 
   return (
-    <section
-      className="addNewWrapper"
-      onChange={changeHandler}
-      onSubmit={submitHandler}
-    >
+    <section className="addNewWrapper" onSubmit={submitHandler}>
       <h2>Add a New Recipe</h2>
       <form>
         <div>
           <label htmlFor="title">Name of the Recipe</label>
-          <input type="text" name="title" id="title" />
+          <input type="text" name="title" id="title" onChange={changeHandler} />
         </div>
 
         <div>
           <label htmlFor="author">Author</label>
-          <input type="text" name="author" id="author" />
+          <input
+            type="text"
+            name="author"
+            id="author"
+            onChange={changeHandler}
+          />
         </div>
 
         <div>
           <label htmlFor="country">Recipe is from</label>
-          <select name="country" id="country">
+          <select name="country" id="country" onChange={changeHandler}>
             {countries.map((country) => {
               return (
                 <option value={country.name.common} key={country.name.common}>
@@ -89,12 +103,16 @@ function AddNew() {
 
         <div>
           <label htmlFor="description">Description</label>
-          <textarea name="description" id="description"></textarea>
+          <textarea
+            name="description"
+            id="description"
+            onChange={changeHandler}
+          ></textarea>
         </div>
 
         <div>
-          <label htmlFor="imageLink">Image</label>
-          <input type="text" name="imageLink" id="imageLink" />
+          <label htmlFor="image">Image</label>
+          <input type="text" name="image" id="image" onChange={changeHandler} />
         </div>
         {val.map((data, key) => {
           return inputWrapper;
@@ -104,7 +122,11 @@ function AddNew() {
         </button>
         <div>
           <label htmlFor="instruction">Instructions</label>
-          <textarea name="instruction" id="instruction"></textarea>
+          <textarea
+            name="instruction"
+            id="instruction"
+            onChange={changeHandler}
+          ></textarea>
         </div>
         <button className="btnPurple" type="submit" id="submit">
           Post Recipe

@@ -2,13 +2,36 @@
   "recipes": [
     {
       "id": 1,
-      "passcode": 1670096332430,
-      "title": "Chowmin",
-      "author": "Deepa",
+      "passcode": 1670097075397,
+      "title": "nepali wheat dhido",
+      "author": "Vijay",
       "country": "Nepal",
-      "description": "Nepali style chowmin.",
-      "imageLink": "https://en.wiktionary.org/wiki/momo#/media/File:Plateful_of_Momo_in_Nepal.jpg",
-      "instruction": "Cook nepali style chowmin",
+      "description": "Make dhido",
+      "imageLink": "",
+      "instruction": "make new dhido.",
+      "quantity": "",
+      "ingredients": [
+        {
+          "id": 1,
+          "quantity": "",
+          "ingredient": ""
+        },
+        {
+          "id": 2,
+          "quantity": "",
+          "ingredient": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "passcode": 1670101621055,
+      "title": "random",
+      "author": "fandom",
+      "country": "",
+      "description": "ohmygod",
+      "image": "",
+      "instruction": "ohmygod",
       "quantity": "",
       "ingredients": [
         {
@@ -18,14 +41,14 @@
       ]
     },
     {
-      "id": 2,
-      "passcode": 1670096540360,
-      "title": "chowmin",
-      "author": "deepa",
-      "country": "",
-      "description": "lorem",
-      "imageLink": "",
-      "instruction": "ipsum",
+      "id": 3,
+      "passcode": 1670101696772,
+      "title": "adfad",
+      "author": "dadf",
+      "country": "Maldives",
+      "description": "adfasdfasd",
+      "image": "",
+      "instruction": "32r345sfdadfa",
       "quantity": "",
       "ingredients": [
         {
