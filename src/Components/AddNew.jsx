@@ -4,6 +4,13 @@ import "../Styles/AddNew.css";
 
 function AddNew() {
   const [countries, setCountries] = useState([]);
+  const [val, setVal] = useState([]);
+
+  const addInputHandler = (e) => {
+    e.preventDefault();
+    const inputs = [...val, []];
+    setVal(inputs);
+  };
 
   useEffect(() => {
     axios.get("https://restcountries.com/v3.1/all").then((res) => {
@@ -11,20 +18,18 @@ function AddNew() {
     });
   }, []);
 
-  const addIngredientsWrapper = () => {
-    return (
-      <div className="ingredients-wrapper">
-        <div>
-          <label htmlFor="quantity">Quantity</label>
-          <input type="text" name="quantity" id="quantity" />
-        </div>
-        <div>
-          <label htmlFor="ingredient">Ingredient</label>
-          <input type="text" name="ingredient" id="ingredient" />
-        </div>
+  const inputWrapper = (
+    <div className="ingredients-wrapper">
+      <div>
+        <label htmlFor="quantity">Quantity</label>
+        <input type="text" name="quantity" id="quantity" />
       </div>
-    );
-  };
+      <div>
+        <label htmlFor="ingredient">Ingredient</label>
+        <input type="text" name="ingredient" id="ingredient" />
+      </div>
+    </div>
+  );
 
   return (
     <section className="addNewWrapper">
@@ -32,12 +37,12 @@ function AddNew() {
       <form>
         <div>
           <label htmlFor="recipeName">Name of the Recipe</label>
-          <input type="text" name="recipeName" id="recipeName" required />
+          <input type="text" name="recipeName" id="recipeName" />
         </div>
 
         <div>
           <label htmlFor="author">Author</label>
-          <input type="text" name="author" id="author" required />
+          <input type="text" name="author" id="author" />
         </div>
 
         <div>
@@ -62,23 +67,18 @@ function AddNew() {
           <label htmlFor="imageLink">Image</label>
           <input type="text" />
         </div>
-
-        <div className="ingredients-wrapper">
-          <div>
-            <label htmlFor="quantity">Quantity</label>
-            <input type="text" name="quantity" id="quantity" />
-          </div>
-          <div>
-            <label htmlFor="ingredient">Ingredient</label>
-            <input type="text" name="ingredient" id="ingredient" />
-          </div>
-        </div>
-        <button onClick={addIngredientsWrapper}>Add More</button>
+        {inputWrapper}
+        {val.map((data, i) => {
+          return inputWrapper;
+        })}
+        <button className="btnGreen" onClick={addInputHandler}>
+          Add More
+        </button>
         <div>
           <label htmlFor="instructions">Instructions</label>
           <textarea name="instruction" id="instructions"></textarea>
         </div>
-        <button type="submit" id="submit">
+        <button className="btnPurple" type="submit" id="submit">
           Post Recipe
         </button>
       </form>

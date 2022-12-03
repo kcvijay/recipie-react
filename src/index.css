@@ -11,13 +11,21 @@ body {
   font-family: "PT Serif", serif;
 }
 
+.btnGreen,
 .btnPurple {
   color: #fff;
   text-decoration: none;
-  background-color: purple;
   border: 1px solid #fff;
   padding: 0.8rem 1.5rem;
   margin: 2rem 0;
+}
+
+.btnPurple {
+  background-color: purple;
+}
+
+.btnGreen {
+  background-color: green;
 }
 
 button,
