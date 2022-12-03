@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 
 import "../Styles/RecipeCard.css";
 
-function RecipeCard({ title, country }) {
+function RecipeCard({ title, country, author, image, flag }) {
   const params = useParams();
   console.log(params.singlerecipe);
 
@@ -12,20 +12,19 @@ function RecipeCard({ title, country }) {
       <img src="https://picsum.photos/300/200" alt="recipe this and that"></img>
       <div className="recipe_details">
         <div className="recipe_img_wrapper">
-          <img
-            className="country-flag"
-            src="https://picsum.photos/50/30"
-            alt="img flag"
-          ></img>
-          <p className="recipe_img_tooltip">Italy</p>
+          <img className="country-flag" src={flag} alt="img flag"></img>
+          <p className="recipe_img_tooltip">{country}</p>
         </div>
 
-        <p className="recipe_name">Italian Zucchini Pizza</p>
+        <p className="recipe_name">{title}</p>
         <div className="recipe_subdetails">
-          <p className="recipe_country">Origin: Italy</p>
-          <p className="author">Author: Vijay KC</p>
+          <p className="recipe_country">
+            Origin: <span>{country}</span>
+          </p>
+          <p className="author">
+            Author: <span>{author}</span>
+          </p>
         </div>
-
         <Link to={`${title}`}>View More</Link>
       </div>
     </div>

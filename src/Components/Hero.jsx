@@ -8,8 +8,8 @@ function Hero() {
     <div className={classes.hero}>
       <video
         autoPlay="autoplay"
-        muted="true"
-        loop="true"
+        muted={true}
+        loop={true}
         className={classes.pieVideo}
       >
         <source src={require("../Assets/hero-vdo.mp4")} type="video/mp4" />
