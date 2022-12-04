@@ -5,15 +5,16 @@ import "../Styles/SingleRecipe.css";
 function SingleRecipe() {
   return (
     <div className="recipe-wrapper">
-      <img src="https://picsum.photos/1200/400" alt="illustration" />
+      <img src="https://picsum.photos/1200/500" alt="illustration" />
 
       <div className="recipe-title">
+        <p className="author-name">
+          <div className="author-logo">V</div>
+          <span>Vijay KC</span>
+        </p>
         <h2>Italian Zucchini Pizza</h2>
-        <div>
-          <img src="https://picsum.photos/50/30" alt="" />
-          <p>Italy</p>
-        </div>
       </div>
+      <hr />
       <div className="description-table-wrapper">
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam

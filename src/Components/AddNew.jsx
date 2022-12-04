@@ -5,77 +5,70 @@ import "../Styles/AddNew.css";
 function AddNew() {
   const [data, setData] = useState({
     id: "",
+    passcode: "",
     title: "",
     author: "",
     country: "",
     description: "",
     image: "",
     instruction: "",
-    quantity: "",
-    ingredients: [{ quantity: "", ingredient: "" }],
+    ingredients: {},
   });
 
   const [countries, setCountries] = useState([]);
-  const [val, setVal] = useState([]);
+  const [ingredInput, setIngredInput] = useState([
+    { id: "", quantity: "", ingredient: "" },
+  ]);
 
-  const addInputHandler = (e) => {
-    e.preventDefault();
-    const inputs = [...val, []];
-    setVal(inputs);
-  };
-
-  const changeHandler = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    axios.post("http://localhost:3001/recipes", data);
-    // window.location.reload();
-    console.log(data);
-  };
-
-  const ingredientsHandler = (e) => {
-    setData({
-      ...data, // Copying a whole field
-      ingredients: {
-        // New ingredients
-        ...data.ingredients, // with the same ingredients
-        [e.target.name]: e.target.value, // new value
-      },
-    });
-  };
-
+  //Axios get to fetch country names on dropdown list ***=> Edit Needed: Sort alphabetically.
   useEffect(() => {
     axios.get("https://restcountries.com/v3.1/all").then((res) => {
       setCountries(res.data);
     });
   }, []);
 
-  const inputWrapper = (
-    <div
-      className="ingredients-wrapper"
-      name="ingredients"
-      onChange={ingredientsHandler}
-    >
-      <div>
-        <label htmlFor="quantity">Quantity</label>
-        <input type="text" name="quantity" id="quantity" />
-      </div>
-      <div>
-        <label htmlFor="ingredient">Ingredient</label>
-        <input type="text" name="ingredient" id="ingredient" />
-      </div>
-    </div>
-  );
+  // On input fields change:
+  const changeHandler = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  // On adding fields button
+  const addFields = (e) => {
+    e.preventDefault();
+    let objects = {
+      id: "",
+      quantity: "",
+      ingredient: "",
+    };
+    setIngredInput([...ingredInput, objects]);
+  };
+
+  // On ingredient fields change:
+  const ingredChangeHandler = (e, index) => {
+    let fields = [...ingredInput];
+    fields[index][e.target.name] = e.target.value; // Value setting up on individual set of form fields.
+    setIngredInput(fields);
+    setData({ ...data, ingredients: ingredInput }); // Pushing the values of ingredients to ingredients states.
+  };
+
+  // On form submit:
+  const submitHandler = (e) => {
+    e.preventDefault();
+    axios.post("http://localhost:3001/recipies", data);
+  };
 
   return (
-    <section className="addNewWrapper" onSubmit={submitHandler}>
+    <section className="addNewWrapper">
       <h2>Add a New Recipe</h2>
       <form>
         <div>
-          <label htmlFor="title">Name of the Recipe</label>
-          <input type="text" name="title" id="title" onChange={changeHandler} />
+          <label htmlFor="title">Name of the Food</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            onChange={changeHandler}
+          ></input>
         </div>
 
         <div>
@@ -85,7 +78,7 @@ function AddNew() {
             name="author"
             id="author"
             onChange={changeHandler}
-          />
+          ></input>
         </div>
 
         <div>
@@ -102,7 +95,7 @@ function AddNew() {
         </div>
 
         <div>
-          <label htmlFor="description">Description</label>
+          <label htmlFor="description">Short Description</label>
           <textarea
             name="description"
             id="description"
@@ -112,12 +105,42 @@ function AddNew() {
 
         <div>
           <label htmlFor="image">Image</label>
-          <input type="text" name="image" id="image" onChange={changeHandler} />
+          <input
+            type="text"
+            name="image"
+            id="image"
+            placeholder="For ex. https://website.com/images/image.jpg"
+            onChange={changeHandler}
+          />
         </div>
-        {val.map((data, key) => {
-          return inputWrapper;
+
+        {/* Adding more ingredient fields on click */}
+        {ingredInput.map((ingredient, index) => {
+          return (
+            <div className="ingredients-wrapper" key={index}>
+              <div>
+                <label htmlFor="quantity">Quantity</label>
+                <input
+                  type="text"
+                  name="quantity"
+                  id="quantity"
+                  onChange={(e) => ingredChangeHandler(e, index)}
+                />
+              </div>
+              <div>
+                <label htmlFor="ingredient">Ingredient</label>
+                <input
+                  type="text"
+                  name="ingredient"
+                  id="ingredient"
+                  onChange={(e) => ingredChangeHandler(e, index)}
+                />
+              </div>
+            </div>
+          );
         })}
-        <button className="btnGreen" onClick={addInputHandler}>
+
+        <button className="btnGreen" onClick={addFields}>
           Add Ingredients
         </button>
         <div>
@@ -128,7 +151,12 @@ function AddNew() {
             onChange={changeHandler}
           ></textarea>
         </div>
-        <button className="btnPurple" type="submit" id="submit">
+        <button
+          className="btnPurple"
+          type="submit"
+          id="submit"
+          onClick={submitHandler}
+        >
           Post Recipe
         </button>
       </form>

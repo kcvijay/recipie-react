@@ -11,7 +11,7 @@ function Home() {
       <Hero />
       <div className={classes.cards}>
         <div className={classes.card}>
-          <div className={classes.cardHeader}>Lorem ipsum dolor sit amet.</div>
+          <h2>Lorem ipsum dolor</h2>
           <div className={classes.cardBody}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui ab
             quisquam voluptas labore illum necessitatibus maiores quaerat
@@ -21,7 +21,7 @@ function Home() {
         </div>
 
         <div className={classes.card}>
-          <div className={classes.cardHeader}>Lorem ipsum dolor sit amet.</div>
+          <h2>Lorem ipsum dolor</h2>
           <div className={classes.cardBody}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui ab
             quisquam voluptas labore illum necessitatibus maiores quaerat
@@ -31,7 +31,7 @@ function Home() {
         </div>
 
         <div className={classes.card}>
-          <div className={classes.cardHeader}>Lorem ipsum dolor sit amet.</div>
+          <h2>Lorem ipsum dolor</h2>
           <div className={classes.cardBody}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui ab
             quisquam voluptas labore illum necessitatibus maiores quaerat

@@ -1,59 +1,46 @@
 {
-  "recipes": [
-    {
-      "id": 1,
-      "passcode": 1670097075397,
-      "title": "nepali wheat dhido",
-      "author": "Vijay",
-      "country": "Nepal",
-      "description": "Make dhido",
-      "imageLink": "",
-      "instruction": "make new dhido.",
-      "quantity": "",
-      "ingredients": [
-        {
-          "id": 1,
-          "quantity": "",
-          "ingredient": ""
-        },
-        {
-          "id": 2,
-          "quantity": "",
-          "ingredient": ""
-        }
-      ]
-    },
+  "recipies": [
     {
       "id": 2,
-      "passcode": 1670101621055,
-      "title": "random",
-      "author": "fandom",
-      "country": "",
-      "description": "ohmygod",
-      "image": "",
-      "instruction": "ohmygod",
-      "quantity": "",
+      "passcode": "",
+      "title": "Nepali Momo",
+      "author": "Vijay",
+      "country": "Nepal",
+      "description": "NEpali style momo",
+      "image": "https://himalayanrestaurant.com/wp-content/uploads/2020/06/IMG_20180811_195650-1200x1600.jpg",
+      "instruction": "Aba momo banaune la",
       "ingredients": [
         {
-          "quantity": "",
-          "ingredient": ""
+          "id": "",
+          "quantity": "1",
+          "ingredient": "something"
+        },
+        {
+          "id": "",
+          "quantity": "2",
+          "ingredient": "something"
         }
       ]
     },
     {
       "id": 3,
-      "passcode": 1670101696772,
-      "title": "adfad",
-      "author": "dadf",
-      "country": "Maldives",
-      "description": "adfasdfasd",
-      "image": "",
-      "instruction": "32r345sfdadfa",
-      "quantity": "",
+      "passcode": "",
+      "title": "Nepali chowmin",
+      "author": "Deepa",
+      "country": "Nepal",
+      "description": "Nepali style chowmin",
+      "image": "http://1.bp.blogspot.com/-fUr8gKqybd4/U3b8wtNxLvI/AAAAAAAABYc/KBoHMWn9YDE/s1600/DSC04159.JPG",
+      "instruction": "Aba chowmin banaune la",
       "ingredients": [
         {
-          "quantity": "",
-          "ingredient": ""
+          "id": "",
+          "quantity": "1",
+          "ingredient": "something"
+        },
+        {
+          "id": "",
+          "quantity": "1",
+          "ingredient": "another something"
         }
       ]
     }

@@ -7,11 +7,19 @@
 .recipe-wrapper img {
   width: 100%;
 }
-
 .recipe-title {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 0;
+  text-align: center;
+}
+hr {
+  border: 0.5px solid #999;
+}
+.author-logo {
+  height: 60px;
+  width: 60px;
+  background-color: #999;
+  border-radius: 50%;
+  font-size: 2rem;
+  color: #fff;
 }
 
 .recipe-title div {
