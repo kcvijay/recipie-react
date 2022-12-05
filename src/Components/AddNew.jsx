@@ -9,27 +9,37 @@ function AddNew() {
     title: "",
     author: "",
     country: "",
+    flag: "",
     description: "",
     image: "",
     instruction: "",
     ingredients: {},
   });
 
-  const [countries, setCountries] = useState([]);
+  const [Allcountries, setAllCountries] = useState([]);
   const [ingredInput, setIngredInput] = useState([
     { id: "", quantity: "", ingredient: "" },
   ]);
 
-  //Axios get to fetch country names on dropdown list ***=> Edit Needed: Sort alphabetically.
-  useEffect(() => {
-    axios.get("https://restcountries.com/v3.1/all").then((res) => {
-      setCountries(res.data);
-    });
-  }, []);
-
   // On input fields change:
   const changeHandler = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  //Axios get to fetch country names on dropdown list ***=> Edit Needed: Sort alphabetically.
+  useEffect(() => {
+    axios.get("https://restcountries.com/v3.1/all").then((res) => {
+      setAllCountries(res.data);
+    });
+  }, []);
+
+  const countryChangeHandler = (e) => {
+    changeHandler(e);
+    axios
+      .get(`https://restcountries.com/v3.1/name/${e.target.value}`)
+      .then((res) => {
+        setData({ ...data, flag: res.data[0].flags?.svg });
+      });
   };
 
   // On adding fields button
@@ -56,7 +66,6 @@ function AddNew() {
     e.preventDefault();
     axios.post("http://localhost:3001/recipies", data);
   };
-
   return (
     <section className="addNewWrapper">
       <h2>Add a New Recipe</h2>
@@ -83,8 +92,16 @@ function AddNew() {
 
         <div>
           <label htmlFor="country">Recipe is from</label>
-          <select name="country" id="country" onChange={changeHandler}>
-            {countries.map((country) => {
+          <select
+            name="country"
+            id="country"
+            onChange={countryChangeHandler}
+            defaultValue={"default"}
+          >
+            <option value="default" disabled={true}>
+              Pick a country..
+            </option>
+            {Allcountries.map((country) => {
               return (
                 <option value={country.name.common} key={country.name.common}>
                   {country.name.common}

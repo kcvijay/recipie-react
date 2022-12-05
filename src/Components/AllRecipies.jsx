@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import RecipeCard from "./RecipeCard";
+import "../Styles/AllRecipies.css";
 
 function AllRecipies() {
   const [data, setData] = useState([]);
@@ -13,17 +14,22 @@ function AllRecipies() {
 
   return (
     <div className="allrecipies">
-      {data.map((recipe) => {
-        return (
-          <RecipeCard
-            title={recipe.title}
-            author={recipe.author}
-            country={recipe.country}
-            image={recipe.image}
-            flag={recipe.flag}
-          />
-        );
-      })}
+      <h2>All Recipies</h2>
+      <div className="recipies-wrapper">
+        {data.map((recipe) => {
+          return (
+            <RecipeCard
+              title={recipe.title}
+              author={recipe.author}
+              country={recipe.country}
+              image={recipe.image}
+              flag={recipe.flag}
+              id={recipe.id}
+              key={recipe.id}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

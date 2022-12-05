@@ -1,11 +1,13 @@
 .recipe-wrapper {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 50px auto;
   line-height: 2;
 }
 
-.recipe-wrapper img {
-  width: 100%;
+.food-image {
+  min-width: 1000px;
+  height: 400px;
+  object-fit: cover;
 }
 .recipe-title {
   text-align: center;
@@ -13,19 +15,18 @@
 hr {
   border: 0.5px solid #999;
 }
-.author-logo {
-  height: 60px;
-  width: 60px;
-  background-color: #999;
-  border-radius: 50%;
+.author-name img {
+  height: 100px;
+  width: 100px;
   font-size: 2rem;
   color: #fff;
 }
 
-.recipe-title div {
+.recipe-title {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-direction: column;
 }
 
 .description-table-wrapper {
@@ -38,9 +39,15 @@ hr {
 table td,
 table th {
   border-bottom: 1px solid #e0e0e0;
+  padding: 0.5rem 0;
+  text-align: left;
 }
 
 thead tr th:last-child,
 tbody tr td:last-child {
   text-align: center;
+}
+
+.recipe-instruction {
+  margin: 30px 0;
 }
