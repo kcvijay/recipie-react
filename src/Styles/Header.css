@@ -1,8 +1,11 @@
 header {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #f2f2f2;
+  z-index: 9999;
 }
 
 .logo {
@@ -22,7 +25,7 @@ header {
 }
 
 .logoUppercase {
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: orange;
 }
 
@@ -43,7 +46,15 @@ header {
   text-decoration: none;
   color: #333;
   text-transform: capitalize;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+}
+
+.nav ul li a.active {
+  background-color: #d3d3d3;
+}
+
+.nav ul li a:hover {
+  background-color: #e4e4e4;
 }
 
 .nav ul li:last-child a {
@@ -53,13 +64,4 @@ header {
 
 .nav ul li:last-child a:hover {
   background-color: #02ae02;
-}
-
-.nav ul li a:active {
-  background-color: #f2f2f2;
-  border-bottom: 2px solid #333;
-}
-
-.nav ul li a:hover {
-  background-color: #d6d6d6;
 }

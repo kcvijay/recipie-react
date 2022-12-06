@@ -8,12 +8,12 @@ import "../Styles/AddNew.css";
 function AddNew() {
   const [data, setData] = useState({
     id: "",
-    passcode: "",
     title: "",
     author: "",
     country: "",
     flag: "",
     description: "",
+    serving: "",
     image: "",
     instruction: "",
     ingredients: {},
@@ -26,11 +26,6 @@ function AddNew() {
     { id: "", quantity: "", ingredient: "" },
   ]);
 
-  // On input fields change:
-  const changeHandler = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
-
   //Axios get to fetch country names on dropdown list ***=> Edit Needed: Sort alphabetically.
   useEffect(() => {
     axios.get("https://restcountries.com/v3.1/all").then((res) => {
@@ -38,13 +33,9 @@ function AddNew() {
     });
   }, []);
 
-  const countryChangeHandler = (e) => {
-    changeHandler(e);
-    axios
-      .get(`https://restcountries.com/v3.1/name/${e.target.value}`)
-      .then((res) => {
-        setData({ ...data, flag: res.data[0].flags?.svg });
-      });
+  // On input fields change:
+  const changeHandler = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
   };
 
   // On adding fields button
@@ -69,13 +60,18 @@ function AddNew() {
   // On form submit:
   const submitHandler = (e) => {
     e.preventDefault();
-    // axios.post("http://localhost:3001/recipies", data);
+    axios.post("http://localhost:3001/recipies", data);
     closeHandler();
     window.location.reload();
   };
 
   const checkPostHandler = (e) => {
     e.preventDefault();
+    axios
+      .get(`https://restcountries.com/v3.1/name/${data.country}`)
+      .then((res) => {
+        setData({ ...data, flag: res.data[0].flags?.svg });
+      });
     setShowModal(true);
   };
   const closeHandler = () => {
@@ -85,7 +81,7 @@ function AddNew() {
   return (
     <section className="addNewWrapper">
       <h2>Add a New Recipe</h2>
-      <form>
+      <form onSubmit={checkPostHandler}>
         <div>
           <label htmlFor="title">Name of the Food</label>
           <input
@@ -93,6 +89,7 @@ function AddNew() {
             name="title"
             id="title"
             onChange={changeHandler}
+            required
           ></input>
         </div>
 
@@ -103,6 +100,7 @@ function AddNew() {
             name="author"
             id="author"
             onChange={changeHandler}
+            required
           ></input>
         </div>
 
@@ -111,16 +109,17 @@ function AddNew() {
           <select
             name="country"
             id="country"
-            onChange={countryChangeHandler}
+            onChange={changeHandler}
             defaultValue={"default"}
+            required
           >
             <option value="default" disabled={true}>
               Pick a country..
             </option>
-            {Allcountries.map((country) => {
+            {Allcountries.map((el) => {
               return (
-                <option value={country.name.common} key={country.name.common}>
-                  {country.name.common}
+                <option value={el.name.common} key={el.name.common}>
+                  {el.name.common}
                 </option>
               );
             })}
@@ -133,7 +132,25 @@ function AddNew() {
             name="description"
             id="description"
             onChange={changeHandler}
+            required
           ></textarea>
+        </div>
+        <div>
+          <label htmlFor="serving">Serving:</label>
+          <select
+            name="serving"
+            id="serving"
+            defaultValue={"default"}
+            onChange={changeHandler}
+          >
+            <option value="default" disabled>
+              Pick a serving size..
+            </option>
+            <option value="For Two People">2 People</option>
+            <option value="For Four People">4 People</option>
+            <option value="For Six People">6 People</option>
+            <option value="For Eight People">8 People</option>
+          </select>
         </div>
 
         <div>
@@ -144,6 +161,7 @@ function AddNew() {
             id="image"
             placeholder="For ex. https://website.com/images/image.jpg"
             onChange={changeHandler}
+            required
           />
         </div>
 
@@ -184,12 +202,7 @@ function AddNew() {
             onChange={changeHandler}
           ></textarea>
         </div>
-        <button
-          className="btnPurple"
-          type="submit"
-          id="submit"
-          onClick={checkPostHandler}
-        >
+        <button className="btnPurple" type="submit" id="submit">
           Post Recipe
         </button>
         {showModal && (

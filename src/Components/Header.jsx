@@ -1,18 +1,18 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import classes from "../Styles/Header.module.css";
+import "../Styles/Header.css";
 
 function Header() {
   return (
     <header>
-      <div className={classes.logo}>
+      <div className="logo">
         <Link to="/">
           <h1>
-            reci<span className={classes.logoUppercase}>pie</span>
+            Reci<span className="logoUppercase">Pie</span>
           </h1>
         </Link>
       </div>
-      <nav className={classes.nav}>
+      <nav className="nav">
         <ul>
           <li>
             <NavLink to="/">Home</NavLink>
@@ -25,7 +25,7 @@ function Header() {
             <NavLink to="/about">About</NavLink>
           </li>
           <li>
-            <NavLink className={classes.linkSpecial} to="/addnewrecipe">
+            <NavLink className="linkSpecial" to="/addnewrecipe">
               Add new
             </NavLink>
           </li>

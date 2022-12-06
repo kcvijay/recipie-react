@@ -11,29 +11,33 @@
 }
 .recipe-title {
   text-align: center;
+  position: relative;
 }
-hr {
-  border: 0.5px solid #999;
+
+.bigFlag {
+  position: absolute;
+  top: -90%;
+  right: 3rem;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  object-fit: cover;
 }
 
 .author-name {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
+  text-align: center;
   color: #999;
-}
-.author-name img {
-  height: 100px;
-  width: 100px;
+  margin-bottom: 1rem;
 }
 
-.recipe-title {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
+.material-icons {
+  vertical-align: middle;
+}
+
+.author-name span {
+  margin-left: 0.5rem;
 }
 
 .description-table-wrapper {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import RecipeCard from "./RecipeCard";
 import "../Styles/AllRecipies.css";
@@ -11,6 +12,17 @@ function AllRecipies() {
       return setData(res.data);
     });
   }, []);
+
+  if (data.length <= 0) {
+    return (
+      <div className="fallback-wrapper">
+        <h2>There are no recipies</h2>
+        <Link to="/addnewrecipe" className="btnPurple">
+          Add New Recipe
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="allrecipies">

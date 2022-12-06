@@ -1,41 +1,55 @@
 .recipe {
   border: 1px solid #f1f1f1;
-  max-width: 300px;
+  min-width: 300px;
+  min-height: 300px;
   overflow: hidden;
   border-radius: 11px;
   z-index: 0;
+  margin: 1rem 2rem;
 }
 
 .recipe_details {
   position: relative;
 }
 
-.recipe img {
+.foodImage {
   width: 300px;
   height: 200px;
   object-fit: cover;
+  transition: all 0.5s ease;
 }
 
-.country-flag {
-  position: absolute;
-  top: -3rem;
-  right: 1rem;
-  border: 2px solid #fff;
+.foodImage:hover {
+  transform: scale(1.05);
 }
 
-.recipe_img_tooltip {
+.tinyFlag {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
   position: absolute;
-  top: -5rem;
+  top: -1.6rem;
   right: 1rem;
-  background-color: #000;
+  background-color: #fff;
+  padding: 0.3rem;
+}
+
+.flag-tooltip {
+  position: absolute;
+  top: -1.6rem;
+  right: 1rem;
+  background-color: orange;
   color: #fff;
-  font-size: 0.8rem;
-  padding: 0.3rem 1rem;
+  padding: 0.2rem 1rem;
+  border: 1px solid #fff;
+  border-radius: 15px;
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease-in-out;
 }
 
-.country-flag:hover + .recipe_img_tooltip {
+.recipe_details:hover .flag-tooltip {
+  top: -3rem;
   opacity: 1;
 }
 
@@ -56,8 +70,7 @@
 }
 
 .recipe_subdetails {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 1rem 1rem 1rem;
-  color: #999;
+  text-align: center;
+  color: #888;
+  padding-bottom: 1rem;
 }

@@ -6,6 +6,7 @@ import Home from "./Components/Home";
 import AllRecipies from "./Components/AllRecipies";
 import SingleRecipe from "./Components/SingleRecipe";
 import AddNew from "./Components/AddNew";
+import About from "./Components/About";
 import NotFound from "./Components/NotFound";
 
 import "./App.css";
@@ -22,6 +23,7 @@ function App() {
             path="browseallrecipies/:singlerecipe"
             element={<SingleRecipe />}
           />
+          <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

@@ -3,6 +3,17 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  column-gap: 3rem;
   margin: 50px 0;
+}
+
+.fallback-wrapper {
+  text-align: center;
+}
+
+.fallback-wrapper h2 {
+  margin-bottom: 1rem;
+}
+
+.fallback-wrapper a {
+  display: inline-block;
 }

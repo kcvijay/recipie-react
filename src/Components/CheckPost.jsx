@@ -6,7 +6,7 @@ function CheckPost({
   author,
   country,
   description,
-  ingredient,
+  ingredients,
   quantity,
   instruction,
   closeHandler,
@@ -17,21 +17,41 @@ function CheckPost({
       <div className="checkpost">
         <h3>Want to review your post?</h3>
         <div className="post-wrapper">
-          <h4>{title}</h4>
-          <p className="post-subheader">Author</p>
-          <p>{author}</p>
-          <p className="post-subheader">Origin</p>
-          <p>{country}</p>
-          <p className="post-subheader">Description</p>
-          <p>{description}</p>
-          <p className="post-subheader">Ingredients</p>
-          <p>{ingredient}</p>
-          <p className="post-subheader">Quantity</p>
-          <p>{quantity}</p>
-          <p className="post-subheader">Instructions</p>
-          <p>{instruction}</p>
+          <h2>{title}</h2>
+          <div className="text-box">
+            <p className="post-subheader">Author:</p>
+            <p>{author}</p>
+          </div>
+
+          <div className="text-box">
+            <p className="post-subheader">
+              Origin:&nbsp;<span>{country}</span>
+            </p>
+          </div>
+
+          <div className="text-box">
+            <p className="post-subheader">Description:</p>
+            <p>{description}</p>
+          </div>
+
+          <div className="text-box">
+            <p className="post-subheader">Ingredients:</p>
+            <ul>
+              {ingredients?.map((ingredient, i) => {
+                return (
+                  <li key={ingredient.i}>
+                    {ingredient.quantity}:&nbsp;{ingredient.ingredient}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="text-box">
+            <p className="post-subheader">Instructions:</p>
+            <p>{instruction}</p>
+          </div>
         </div>
-        <p>Would you like to post?</p>
+        <h3>Would you like to post?</h3>
         <div className="checkpost-btns">
           <button className="btnWhite" onClick={closeHandler}>
             No, I would like to edit first.

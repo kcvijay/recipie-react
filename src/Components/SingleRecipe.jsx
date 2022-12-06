@@ -28,14 +28,16 @@ function SingleRecipe() {
     <div className="recipe-wrapper">
       <img className="food-image" src={data.image} alt={data.title} />
       <div className="recipe-title">
+        <img className="bigFlag" src={data.flag} alt="country flag" />
+        <h2 className="title">{data.title}</h2>
         <div className="author-name">
-          <img src={data.flag} alt="flag" />
           <div>
             <p>Author:&nbsp;{data.author}</p>
             <p>Origin: &nbsp;{data.country}</p>
+            <p className="material-icons">local_dining</p>
+            <span>{data.serving}</span>
           </div>
         </div>
-        <h2>{data.title}</h2>
       </div>
       <hr />
       <div className="description-table-wrapper">
