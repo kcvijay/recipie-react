@@ -1,0 +1,29 @@
+.overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.checkpost {
+  max-width: 1000px;
+  background-color: #f1f1f1;
+  padding: 1.5rem;
+  line-height: 1.5;
+  overflow-y: scroll;
+}
+
+.post-subheader {
+  font-weight: 700;
+  padding: 1rem 0;
+}
+
+.checkpost-btns button {
+  margin: 0.5rem;
+}

@@ -9,6 +9,7 @@
 body {
   font-family: "Yeseva One", serif;
   font-family: "PT Serif", serif;
+  position: relative;
 }
 
 h2 {
@@ -35,6 +36,17 @@ h2 {
 
 .btnGreen {
   background-color: green;
+}
+
+.btnWhite {
+  color: #333;
+  background-color: #fff;
+  text-decoration: none;
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: 0.8rem 1.5rem;
+  margin: 1rem 0;
+  cursor: pointer;
 }
 
 button,

@@ -15,13 +15,25 @@ function SingleRecipe() {
       });
   }, []);
 
+  const allIngredients = data.ingredients?.map((item) => {
+    return (
+      <tr>
+        <td>{item.ingredient}</td>
+        <td>{item.quantity}</td>
+      </tr>
+    );
+  });
+
   return (
     <div className="recipe-wrapper">
       <img className="food-image" src={data.image} alt={data.title} />
       <div className="recipe-title">
         <div className="author-name">
           <img src={data.flag} alt="flag" />
-          <p>{data.author}</p>
+          <div>
+            <p>Author:&nbsp;{data.author}</p>
+            <p>Origin: &nbsp;{data.country}</p>
+          </div>
         </div>
         <h2>{data.title}</h2>
       </div>
@@ -39,16 +51,7 @@ function SingleRecipe() {
               <th>Quantity</th>
             </tr>
           </thead>
-          <tbody>
-            {/* {data.ingredients.map((item) => {
-              return (
-                <tr>
-                  <td>{item.ingredient}</td>
-                  <td>{item.quantity}</td>
-                </tr>
-              );
-            })} */}
-          </tbody>
+          <tbody>{allIngredients}</tbody>
         </table>
       </div>
       <div className="recipe-instruction">

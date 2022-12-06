@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
+import CheckPost from "./CheckPost";
+
 import "../Styles/AddNew.css";
 
 function AddNew() {
@@ -15,6 +18,8 @@ function AddNew() {
     instruction: "",
     ingredients: {},
   });
+
+  const [showModal, setShowModal] = useState(false);
 
   const [Allcountries, setAllCountries] = useState([]);
   const [ingredInput, setIngredInput] = useState([
@@ -64,8 +69,19 @@ function AddNew() {
   // On form submit:
   const submitHandler = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3001/recipies", data);
+    // axios.post("http://localhost:3001/recipies", data);
+    closeHandler();
+    window.location.reload();
   };
+
+  const checkPostHandler = (e) => {
+    e.preventDefault();
+    setShowModal(true);
+  };
+  const closeHandler = () => {
+    setShowModal(false);
+  };
+
   return (
     <section className="addNewWrapper">
       <h2>Add a New Recipe</h2>
@@ -172,10 +188,17 @@ function AddNew() {
           className="btnPurple"
           type="submit"
           id="submit"
-          onClick={submitHandler}
+          onClick={checkPostHandler}
         >
           Post Recipe
         </button>
+        {showModal && (
+          <CheckPost
+            {...data}
+            closeHandler={closeHandler}
+            submitHandler={submitHandler}
+          />
+        )}
       </form>
     </section>
   );

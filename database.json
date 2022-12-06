@@ -1,3 +1,55 @@
 {
-  "recipies": []
+  "recipies": [
+    {
+      "id": 1,
+      "passcode": "",
+      "title": "Nepali Masu Bhat",
+      "author": "Vijay",
+      "country": "Nepal",
+      "flag": "https://flagcdn.com/np.svg",
+      "description": "Nepali meat curry and rice.",
+      "image": "https://scontent-arn2-2.xx.fbcdn.net/v/t1.6435-9/65705484_2514651431912524_1338917674700242944_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=yFko13V36tEAX_gLL2_&_nc_ht=scontent-arn2-2.xx&oh=00_AfD28GcK34CZYCtz7efcdgnfCv883Fp58Q6oEFQUCwwP5w&oe=63B581DA",
+      "instruction": "Now cook masu bhat.",
+      "ingredients": [
+        {
+          "id": 1,
+          "quantity": "1 Kg",
+          "ingredient": "Meat"
+        },
+        {
+          "id": 2,
+          "quantity": "250 g",
+          "ingredient": "Rice"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "passcode": "",
+      "title": "Meatballs",
+      "author": "Deepa",
+      "country": "Sweden",
+      "flag": "https://flagcdn.com/se.svg",
+      "description": "Meatballs are literally small balls made of meat and other herbs and spices. Ikea has been making millions selling them on their marketplace.",
+      "image": "https://amindfullmom.com/wp-content/uploads/2021/08/Meatball-Recipe.jpg",
+      "instruction": "Now mix all the spices and herbs along with chopped onions with minced meat. Make balls out of them and bake them. Meat balls are ready.",
+      "ingredients": [
+        {
+          "id": "",
+          "quantity": "0.5 Kg",
+          "ingredient": "Meat"
+        },
+        {
+          "id": "",
+          "quantity": "250 g",
+          "ingredient": "Onions"
+        },
+        {
+          "id": "",
+          "quantity": "100 g",
+          "ingredient": "Other herbs and spices"
+        }
+      ]
+    }
+  ]
 }
