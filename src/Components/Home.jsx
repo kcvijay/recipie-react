@@ -11,33 +11,33 @@ function Home() {
       <Hero />
       <div className={classes.cards}>
         <div className={classes.card}>
-          <h2>Lorem ipsum dolor</h2>
+          <h2>Browse Recipies</h2>
           <div className={classes.cardBody}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui ab
-            quisquam voluptas labore illum necessitatibus maiores quaerat
-            commodi? Possimus dolorem unde numquam in eveniet qui.
+            You can easily view the available recipies users posted from all
+            over the world. Watch and learn what deliciousness the world is
+            offering for you.
           </div>
-          <Link to="/browseallrecipies">Browse all recipies</Link>
+          <Link to="/browseallrecipies">Browse All Recipies</Link>
         </div>
 
         <div className={classes.card}>
-          <h2>Lorem ipsum dolor</h2>
+          <h2>Add a Recipe</h2>
           <div className={classes.cardBody}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui ab
-            quisquam voluptas labore illum necessitatibus maiores quaerat
-            commodi? Possimus dolorem unde numquam in eveniet qui.
+            You can not just view others' recipies but, also post yours. Just
+            fill the recipe form and publish your awesome food recipe for
+            everyone to see.
           </div>
-          <Link to="/addnewrecipe">Add New Recipe</Link>
+          <Link to="/addnewrecipe">Add a New Recipe</Link>
         </div>
 
         <div className={classes.card}>
-          <h2>Lorem ipsum dolor</h2>
+          <h2>Our School</h2>
           <div className={classes.cardBody}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui ab
-            quisquam voluptas labore illum necessitatibus maiores quaerat
-            commodi? Possimus dolorem unde numquam in eveniet qui.
+            Business College is one of the reputed school in Finland which
+            provides range of courses for students who want to land at job right
+            away.
           </div>
-          <a href="/browserallrecipe" target="_blank noreferer">
+          <a href="https://en.bc.fi" target="_blank noreferer">
             Business College Helsinki
           </a>
         </div>
