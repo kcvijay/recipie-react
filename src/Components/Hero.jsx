@@ -17,7 +17,7 @@ function Hero() {
       <div className={classes.heroText}>
         <h2>Recipies from the world</h2>
         <div>
-          <Link className="btnPurple" to="/browseallrecipies">
+          <Link className="btnOrange" to="/browseallrecipies">
             Browse all Recipies
           </Link>
         </div>

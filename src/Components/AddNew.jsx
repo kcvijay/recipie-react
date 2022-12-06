@@ -19,12 +19,12 @@ function AddNew() {
     ingredients: {},
   });
 
-  const [showModal, setShowModal] = useState(false);
-
-  const [Allcountries, setAllCountries] = useState([]);
+  // Other states
+  const [showModal, setShowModal] = useState(false); //To show the CheckPost Modal
+  const [Allcountries, setAllCountries] = useState([]); // To set countries list on dropdown
   const [ingredInput, setIngredInput] = useState([
-    { id: "", quantity: "", ingredient: "" },
-  ]);
+    { id: null, quantity: "", ingredient: "" },
+  ]); // For adding new ingredients
 
   //Axios get to fetch country names on dropdown list ***=> Edit Needed: Sort alphabetically.
   useEffect(() => {
@@ -42,7 +42,7 @@ function AddNew() {
   const addFields = (e) => {
     e.preventDefault();
     let objects = {
-      id: "",
+      id: null,
       quantity: "",
       ingredient: "",
     };
@@ -67,6 +67,7 @@ function AddNew() {
 
   const checkPostHandler = (e) => {
     e.preventDefault();
+    // Get flag link rightaway and store it to state.
     axios
       .get(`https://restcountries.com/v3.1/name/${data.country}`)
       .then((res) => {
@@ -74,6 +75,7 @@ function AddNew() {
       });
     setShowModal(true);
   };
+
   const closeHandler = () => {
     setShowModal(false);
   };
@@ -202,7 +204,7 @@ function AddNew() {
             onChange={changeHandler}
           ></textarea>
         </div>
-        <button className="btnPurple" type="submit" id="submit">
+        <button className="btnOrange" type="submit" id="submit">
           Post Recipe
         </button>
         {showModal && (

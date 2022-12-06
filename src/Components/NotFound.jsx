@@ -8,7 +8,7 @@ function NotFound() {
       <h2 className="not-found-header">ERROR 404!</h2>
       <p>Page Not Found</p>
 
-      <Link className="btnPurple" to="/">
+      <Link className="btnOrange" to="/">
         Back to home
       </Link>
     </div>

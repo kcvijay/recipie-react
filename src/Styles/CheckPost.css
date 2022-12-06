@@ -11,11 +11,12 @@
 }
 
 .checkpost {
-  max-width: 1000px;
+  max-width: 1200px;
+  height: auto;
   background-color: #f1f1f1;
   padding: 1.5rem;
   line-height: 1.5;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 ul li {
@@ -31,6 +32,12 @@ ul li {
   padding: 1rem 0;
 }
 
+.checkpost-btns {
+  display: flex;
+  width: 100%;
+}
+
 .checkpost-btns button {
   margin: 0.5rem;
+  display: inline-block;
 }

@@ -19,7 +19,7 @@ h2 {
 }
 
 .btnGreen,
-.btnPurple {
+.btnOrange {
   color: #fff;
   text-decoration: none;
   border: 1px solid #fff;
@@ -29,8 +29,8 @@ h2 {
   cursor: pointer;
 }
 
-.btnPurple {
-  background-color: purple;
+.btnOrange {
+  background-color: #ffa500;
 }
 
 .btnGreen {

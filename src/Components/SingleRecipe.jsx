@@ -7,6 +7,7 @@ function SingleRecipe() {
   const params = useParams();
   const [data, setData] = useState([]);
 
+  // Receiving parameters from AllRecipies recipe card
   useEffect(() => {
     axios
       .get(`http://localhost:3001/recipies/${params.singlerecipe}`)
@@ -17,7 +18,7 @@ function SingleRecipe() {
 
   const allIngredients = data.ingredients?.map((item) => {
     return (
-      <tr>
+      <tr key={item.ingredient}>
         <td>{item.ingredient}</td>
         <td>{item.quantity}</td>
       </tr>
@@ -60,7 +61,7 @@ function SingleRecipe() {
         <h3>Instruction</h3>
         <p>{data.instruction}</p>
       </div>
-      <Link to="/browseallrecipies" className="btnPurple">
+      <Link to="/browseallrecipies" className="btnOrange">
         Back to Recipies
       </Link>
     </div>

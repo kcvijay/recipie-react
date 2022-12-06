@@ -19,8 +19,9 @@ function CheckPost({
         <div className="post-wrapper">
           <h2>{title}</h2>
           <div className="text-box">
-            <p className="post-subheader">Author:</p>
-            <p>{author}</p>
+            <p className="post-subheader">
+              Author:&nbsp;<span>{author}</span>
+            </p>
           </div>
 
           <div className="text-box">
@@ -37,9 +38,9 @@ function CheckPost({
           <div className="text-box">
             <p className="post-subheader">Ingredients:</p>
             <ul>
-              {ingredients?.map((ingredient, i) => {
+              {ingredients?.map((ingredient) => {
                 return (
-                  <li key={ingredient.i}>
+                  <li key={ingredient.ingredient}>
                     {ingredient.quantity}:&nbsp;{ingredient.ingredient}
                   </li>
                 );

@@ -17,7 +17,7 @@ function AllRecipies() {
     return (
       <div className="fallback-wrapper">
         <h2>There are no recipies</h2>
-        <Link to="/addnewrecipe" className="btnPurple">
+        <Link to="/addnewrecipe" className="btnOrange">
           Add New Recipe
         </Link>
       </div>
