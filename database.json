@@ -204,6 +204,54 @@
           "ingredient": "Salt"
         }
       ]
+    },
+    {
+      "id": 6,
+      "title": "Estonian Potato Salad",
+      "author": "www.thenonglutenone.com",
+      "country": "Estonia",
+      "flag": "https://flagcdn.com/ee.svg",
+      "description": "Potato salad can be made in so many different ways but this Estonian version is the best, obviously. It’s been a staple dish to serve on special occasions like birthdays or Christmas for a long time",
+      "serving": "For Six People",
+      "image": "https://as1.ftcdn.net/v2/jpg/04/14/86/50/1000_F_414865066_PAVELBYSMbxV7dgOrNliP03rb5eOam1p.jpg",
+      "instruction": "Wash the potatoes and carrots, boil them in separate pots for about 60 mins or until soft when pierced with a fork.\nOnce boiled soft, let them cool for at least 60 minutes. Boil the eggs for 10 minutes, let cool.\nCut everything in small cubes and mix in a large bowl.\nMix the sauce ingredients in a separate bowl and add to the salad.\nPeel the eggs, mash them with a fork. Serve the salad as portions and top the portions with the mashed eggs.",
+      "ingredients": [
+        {
+          "id": null,
+          "quantity": "5 pcs",
+          "ingredient": "Medium potatoes"
+        },
+        {
+          "id": null,
+          "quantity": "3 pcs",
+          "ingredient": "Medium carrots"
+        },
+        {
+          "id": null,
+          "quantity": "200 g",
+          "ingredient": "Pickeled gherkins"
+        },
+        {
+          "id": null,
+          "quantity": "1 pc",
+          "ingredient": "Red onion"
+        },
+        {
+          "id": null,
+          "quantity": "4 pcs",
+          "ingredient": "Hard boiled eggs"
+        },
+        {
+          "id": null,
+          "quantity": "300 ml",
+          "ingredient": "Sour cream"
+        },
+        {
+          "id": null,
+          "quantity": "100 ml",
+          "ingredient": "Mayonnaise"
+        }
+      ]
     }
   ]
 }

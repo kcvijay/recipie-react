@@ -5,15 +5,28 @@ import RecipeCard from "./RecipeCard";
 import "../Styles/AllRecipies.css";
 
 function AllRecipies() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({
+    search: "",
+  });
+  const [recipies, setRecipies] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:3001/recipies").then((res) => {
-      return setData(res.data);
+      setRecipies(res.data);
     });
   }, []);
 
-  if (data.length <= 0) {
+  const inputHandler = (e) => {
+    e.preventDefault();
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  //Filtering recipe cards by their name according to the texts on input field.
+  const filteredItems = recipies.filter((item) => {
+    return item.title.toLowerCase().includes(data.search.toLowerCase());
+  });
+
+  if (recipies.length <= 0) {
     return (
       <div className="fallback-wrapper">
         <h2>There are no recipies</h2>
@@ -27,8 +40,19 @@ function AllRecipies() {
   return (
     <div className="allrecipies">
       <h2>All Recipies</h2>
+      <div className="filter-wrapper">
+      <input
+        type="text"
+        name="search"
+        id="search"
+        className="card-filter"
+        placeholder="Search recipe by name.."
+        onChange={inputHandler}
+      />
+      </div>
+    
       <div className="recipies-wrapper">
-        {data.map((recipe) => {
+        {filteredItems.map((recipe) => {
           return (
             <RecipeCard
               title={recipe.title}

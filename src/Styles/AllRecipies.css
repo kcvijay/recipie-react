@@ -1,9 +1,22 @@
+.filter-wrapper input {
+ display: block;
+ margin: 0 auto;
+ height: 35px;
+width: 250px;
+ padding: 0 0.5rem;
+ border: 1px solid #dadada;
+}
 .recipies-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   margin: 50px 0;
+}
+
+#search {
+  display: flex;
+  justify-content: center;
 }
 
 .fallback-wrapper {
