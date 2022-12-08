@@ -5,10 +5,10 @@ function About() {
   return (
     <div className="about-wrapper">
       <h2>About this website</h2>
-      <p>
+      <p><strong>
         This is a classroom project for Fullstack Web Developer Program at
         Business College Helsinki, 2022.
-      </p>
+        </strong></p>
       <p>
         The purpose of this project is to learn basics of React funcional
         components, react-router and use of JSON Server.

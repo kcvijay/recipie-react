@@ -11,6 +11,5 @@ User can input their country-specific food recipies and browse other recipies to
 1. HTML
 1. React
 1. CSS
-1. Bootstrap
 1. JSON Server
 1. RestCountries API
