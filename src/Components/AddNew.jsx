@@ -158,7 +158,7 @@ function AddNew() {
         <div>
           <label htmlFor="image">Image</label>
           <input
-            type="text"
+            type="url"
             name="image"
             id="image"
             placeholder="For ex. https://website.com/images/image.jpg"

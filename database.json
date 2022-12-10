@@ -300,6 +300,68 @@
           "ingredient": "Syrup"
         }
       ]
+    },
+    {
+      "id": 9,
+      "passcode": "",
+      "title": "Chicken Lo Mein",
+      "author": "www.tasty.co",
+      "country": "China",
+      "flag": "https://flagcdn.com/cn.svg",
+      "description": "here are many benefits to making your favorite Chinese takeout meal at home — and that includes chicken lo mein! For one, you can add more fresh vegetables to your chicken lo mein, or use soy sauce with less sodium for a lighter version. To make it, all you have to do is stir-fry your chicken and veggies, add cooked egg noodles, and toss it all together with a simple sauce. Top with scallions, box up the leftovers, and you’ll have cheap, yummy eats for days.",
+      "serving": "For Four People",
+      "image": "https://www.justataste.com/wp-content/uploads/2017/06/easy-chicken-lo-mein-recipe-580x875.jpg",
+      "instruction": "In a medium bowl, season the chicken with pepper, salt and 1 tablespoon of sesame oil. Mix thoroughly and set aside.\nIn a separate medium bowl, combine the chicken broth, remaining tablespoon of sesame oil, soy sauce, hoisin sauce, and cornstarch. Mix thoroughly and set aside.\nHeat the vegetable oil in a wok or large pan over medium-high heat. Add the chicken and cook until no longer pink inside, 3-4 minutes. Remove the chicken from the pan and set aside.\nAdd the garlic and ginger to the pan and cook until fragrant.\nAdd the mushrooms, onions, carrots, and sugar snap peas. Stir fry until the vegetables are tender.\nReturn the cooked chicken to the pan and add the cooked egg noodles and reserved sauce. Cook for 3 minutes, until everything is well-coated in the sauce.\nServe garnished with scallions.\nEnjoy!",
+      "ingredients": [
+        {
+          "quantity": "500 g",
+          "ingredient": "Chicken breast sliced"
+        },
+        {
+          "quantity": "1 tbsp",
+          "ingredient": "Salt & Pepper"
+        },
+        {
+          "quantity": "1/4 cup",
+          "ingredient": "Chicken broth"
+        },
+        {
+          "quantity": "1 tbsp",
+          "ingredient": "Soy sauce"
+        },
+        {
+          "quantity": "1 tbsp ",
+          "ingredient": "Corn starch"
+        },
+        {
+          "quantity": "1 tbsp",
+          "ingredient": "Vegetable oil"
+        },
+        {
+          "quantity": "1 tbsp",
+          "ingredient": "Minced garlic"
+        },
+        {
+          "quantity": "1 tbsp",
+          "ingredient": "Minced ginger"
+        },
+        {
+          "quantity": "1/2 cup",
+          "ingredient": "Shitake mushroom sliced"
+        },
+        {
+          "quantity": "1/2 cup",
+          "ingredient": "Onion sliced"
+        },
+        {
+          "quantity": "4 serving",
+          "ingredient": "Cooked egg noodles"
+        },
+        {
+          "quantity": "1 tbsp",
+          "ingredient": "Scallions chopped"
+        }
+      ]
     }
   ]
 }
