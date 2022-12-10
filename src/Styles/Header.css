@@ -4,7 +4,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: #fff;
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid #fff;
+  border-top: 2px solid #fff;
   z-index: 9999;
 }
 

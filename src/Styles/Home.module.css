@@ -4,7 +4,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 2rem;
-  margin: 2rem 0;
+  margin: 50px auto;
 }
 
 .card {
@@ -19,6 +19,7 @@
 
 .card a {
   color: orange;
+  font-style: italic;
   text-decoration: none;
 }
 

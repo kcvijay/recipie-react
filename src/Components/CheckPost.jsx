@@ -55,10 +55,10 @@ function CheckPost({
         <h3>Would you like to post?</h3>
         <div className="checkpost-btns">
           <button className="btnWhite" onClick={closeHandler}>
-            No, I would like to edit first.
+            NO, I would like to edit first.
           </button>
           <button className="btnGreen" onClick={submitHandler}>
-            Yes, I would like to post.
+            YES, I would like to post.
           </button>
         </div>
       </div>

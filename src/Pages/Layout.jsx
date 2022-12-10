@@ -2,14 +2,14 @@ import React from "react";
 
 import Header from "../Components/Header";
 import Main from "../Components/Main";
-
-import classes from "./Layout.module.css";
+import Footer from "../Components/Footer";
 
 const Layout = () => {
   return (
-    <section className={classes.wrapper}>
+    <section className="wrapper">
       <Header />
       <Main />
+      <Footer />
     </section>
   );
 };

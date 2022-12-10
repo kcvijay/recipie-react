@@ -11,7 +11,7 @@
 }
 
 .checkpost {
-  width: 80%;
+  max-width: 70vw;
   height: 70vh;
   background-color: #f1f1f1;
   padding: 1.5rem;
@@ -34,10 +34,12 @@ ul li {
 
 .checkpost-btns {
   display: flex;
+  justify-content: space-between;
   width: 100%;
 }
 
 .checkpost-btns button {
   margin: 0.5rem;
   display: inline-block;
+  width: 100%;
 }

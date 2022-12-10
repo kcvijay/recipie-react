@@ -8,6 +8,7 @@ import "../Styles/AddNew.css";
 function AddNew() {
   const [data, setData] = useState({
     id: "",
+    passcode: "",
     title: "",
     author: "",
     country: "",
@@ -23,7 +24,7 @@ function AddNew() {
   const [showModal, setShowModal] = useState(false); //To show the CheckPost Modal
   const [Allcountries, setAllCountries] = useState([]); // To set countries list on dropdown
   const [ingredInput, setIngredInput] = useState([
-    { id: null, quantity: "", ingredient: "" },
+    { quantity: "", ingredient: "" },
   ]); // For adding new ingredients
 
   //Axios get to fetch country names on dropdown list ***=> Edit Needed: Sort alphabetically.
@@ -42,7 +43,6 @@ function AddNew() {
   const addFields = (e) => {
     e.preventDefault();
     let objects = {
-      id: null,
       quantity: "",
       ingredient: "",
     };
@@ -55,14 +55,6 @@ function AddNew() {
     fields[index][e.target.name] = e.target.value; // Value setting up on individual set of form fields.
     setIngredInput(fields);
     setData({ ...data, ingredients: ingredInput }); // Pushing the values of ingredients to ingredients states.
-  };
-
-  // On form submit:
-  const submitHandler = (e) => {
-    e.preventDefault();
-    axios.post("http://localhost:3001/recipies", data);
-    closeHandler();
-    window.location.reload();
   };
 
   const checkPostHandler = (e) => {
@@ -78,6 +70,14 @@ function AddNew() {
 
   const closeHandler = () => {
     setShowModal(false);
+  };
+
+  // On form submit:
+  const submitHandler = (e) => {
+    e.preventDefault();
+    axios.post("http://localhost:3001/recipies", data);
+    closeHandler();
+    window.location.reload();
   };
 
   return (
