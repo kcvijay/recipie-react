@@ -29,6 +29,7 @@ function AddNew() {
     { quantity: "", ingredient: "" },
   ]); // For adding new ingredients
   const [captcha, setCaptcha] = useState("");
+  const [inputCaptcha, setInputCaptcha] = useState("");
 
   //Axios get to fetch country names on dropdown list ***=> Edit Needed: Sort alphabetically.
   useEffect(() => {
@@ -64,6 +65,7 @@ function AddNew() {
     setShowModal(!showModal);
   };
 
+  //Passcode handler for post update, delete and captcha.
   const passcodeHandler = (length) => {
     let passcode = "";
     let chars =
@@ -74,28 +76,48 @@ function AddNew() {
     return passcode;
   };
 
-  const checkPostHandler = (e) => {
-    e.preventDefault();
-    // Get flag link rightaway and store it to state.
-    axios
-      .get(`https://restcountries.com/v3.1/name/${data.country}`)
-      .then((res) => {
-        setData({ ...data, flag: res.data[0].flags?.svg });
-      });
-    modalHandler();
+  // Re-usable function of captcha making.
+  const captchaHandler = (e) => {
+    const captcha = passcodeHandler(6);
+    setCaptcha(captcha);
+  };
+
+  const setInputCaptchaHandler = (e) => {
+    setInputCaptcha(e.target.value);
   };
 
   //Because of asynchronous nature of state updating, we need to have componentDidUpdate method before submitting the button, in order to push passcode value into data state..
   useEffect(() => {
     const passcode = passcodeHandler(15);
-    const captcha = passcodeHandler(6);
     setData({ ...data, passcode: passcode });
-    setCaptcha(captcha);
+    captchaHandler();
   }, []);
+
+  const newCaptchaHandler = (e) => {
+    e.preventDefault();
+    captchaHandler();
+  };
 
   const messageCloseHandler = () => {
     setShowMessage(false);
     window.location.reload();
+  };
+
+  // On submit button --> Opens the recipe review page (CheckPost).
+  const checkPostHandler = (e) => {
+    e.preventDefault();
+
+    if (captcha === inputCaptcha) {
+      // Get flag link rightaway and store it to state.
+      axios
+        .get(`https://restcountries.com/v3.1/name/${data.country}`)
+        .then((res) => {
+          setData({ ...data, flag: res.data[0].flags?.svg });
+        });
+      modalHandler();
+    } else {
+      alert("The code did not match. Try again.");
+    }
   };
 
   // On form submit:
@@ -235,7 +257,12 @@ function AddNew() {
         <div>
           <label htmlFor="captcha">Insert the text shown below.</label>
           <p className="captcha-txt">{captcha}</p>
-          <input type="text" id="captcha"></input>
+          <button onClick={newCaptchaHandler}>Reload</button>
+          <input
+            type="text"
+            id="captcha"
+            onChange={setInputCaptchaHandler}
+          ></input>
         </div>
 
         <button className="btnOrange" type="submit" id="submit">
