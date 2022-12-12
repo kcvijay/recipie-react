@@ -28,6 +28,7 @@ function AddNew() {
   const [ingredInput, setIngredInput] = useState([
     { quantity: "", ingredient: "" },
   ]); // For adding new ingredients
+  const [captcha, setCaptcha] = useState("");
 
   //Axios get to fetch country names on dropdown list ***=> Edit Needed: Sort alphabetically.
   useEffect(() => {
@@ -65,7 +66,8 @@ function AddNew() {
 
   const passcodeHandler = (length) => {
     let passcode = "";
-    let chars = "ABCDE-FGHIJKL-MNOPQRST-UVWXYZ-01234-56789";
+    let chars =
+      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     for (let i = 0; i < length; i++) {
       passcode += chars.charAt(Math.floor(Math.random() * chars.length));
     }
@@ -86,8 +88,15 @@ function AddNew() {
   //Because of asynchronous nature of state updating, we need to have componentDidUpdate method before submitting the button, in order to push passcode value into data state..
   useEffect(() => {
     const passcode = passcodeHandler(15);
+    const captcha = passcodeHandler(6);
     setData({ ...data, passcode: passcode });
+    setCaptcha(captcha);
   }, []);
+
+  const messageCloseHandler = () => {
+    setShowMessage(false);
+    window.location.reload();
+  };
 
   // On form submit:
   const submitHandler = (e) => {
@@ -95,11 +104,6 @@ function AddNew() {
     axios.post("http://localhost:3001/recipies", data);
     modalHandler();
     setShowMessage(true);
-  };
-
-  const messageCloseHandler = () => {
-    setShowMessage(false);
-    window.location.reload();
   };
 
   return (
@@ -226,6 +230,14 @@ function AddNew() {
             onChange={changeHandler}
           ></textarea>
         </div>
+
+        {/*Captcha*/}
+        <div>
+          <label htmlFor="captcha">Insert the text shown below.</label>
+          <p className="captcha-txt">{captcha}</p>
+          <input type="text" id="captcha"></input>
+        </div>
+
         <button className="btnOrange" type="submit" id="submit">
           Post Recipe
         </button>
