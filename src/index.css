@@ -19,7 +19,8 @@ h2 {
 }
 
 .btnGreen,
-.btnOrange {
+.btnOrange,
+.btnRed {
   color: #fff;
   text-decoration: none;
   border: 1px solid #fff;
@@ -35,6 +36,10 @@ h2 {
 
 .btnGreen {
   background-color: green;
+}
+
+.btnRed {
+  background-color: red;
 }
 
 .btnWhite {

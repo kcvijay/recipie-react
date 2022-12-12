@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import CheckPost from "./CheckPost";
+import Message from "./Message";
 
 import "../Styles/AddNew.css";
 
@@ -22,6 +23,7 @@ function AddNew() {
 
   // Other states
   const [showModal, setShowModal] = useState(false); //To show the CheckPost Modal
+  const [showMessage, setShowMessage] = useState(false);
   const [Allcountries, setAllCountries] = useState([]); // To set countries list on dropdown
   const [ingredInput, setIngredInput] = useState([
     { quantity: "", ingredient: "" },
@@ -57,6 +59,19 @@ function AddNew() {
     setData({ ...data, ingredients: ingredInput }); // Pushing the values of ingredients to ingredients states.
   };
 
+  const modalHandler = () => {
+    setShowModal(!showModal);
+  };
+
+  const passcodeHandler = (length) => {
+    let passcode = "";
+    let chars = "ABCDE-FGHIJKL-MNOPQRST-UVWXYZ-01234-56789";
+    for (let i = 0; i < length; i++) {
+      passcode += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return passcode;
+  };
+
   const checkPostHandler = (e) => {
     e.preventDefault();
     // Get flag link rightaway and store it to state.
@@ -65,18 +80,25 @@ function AddNew() {
       .then((res) => {
         setData({ ...data, flag: res.data[0].flags?.svg });
       });
-    setShowModal(true);
+    modalHandler();
   };
 
-  const closeHandler = () => {
-    setShowModal(false);
-  };
+  //Because of asynchronous nature of state updating, we need to have componentDidUpdate method before submitting the button, in order to push passcode value into data state..
+  useEffect(() => {
+    const passcode = passcodeHandler(15);
+    setData({ ...data, passcode: passcode });
+  }, []);
 
   // On form submit:
   const submitHandler = (e) => {
     e.preventDefault();
     axios.post("http://localhost:3001/recipies", data);
-    closeHandler();
+    modalHandler();
+    setShowMessage(true);
+  };
+
+  const messageCloseHandler = () => {
+    setShowMessage(false);
     window.location.reload();
   };
 
@@ -210,8 +232,15 @@ function AddNew() {
         {showModal && (
           <CheckPost
             {...data}
-            closeHandler={closeHandler}
+            closeHandler={modalHandler}
             submitHandler={submitHandler}
+          />
+        )}
+
+        {showMessage && (
+          <Message
+            passcode={data.passcode}
+            closeMessage={messageCloseHandler}
           />
         )}
       </form>
