@@ -106,8 +106,9 @@ function AddNew() {
   // On submit button --> Opens the recipe review page (CheckPost).
   const checkPostHandler = (e) => {
     e.preventDefault();
-
-    if (captcha === inputCaptcha) {
+    if (captcha !== inputCaptcha) {
+      alert("The code did not match. Try again.");
+    } else {
       // Get flag link rightaway and store it to state.
       axios
         .get(`https://restcountries.com/v3.1/name/${data.country}`)
@@ -115,8 +116,6 @@ function AddNew() {
           setData({ ...data, flag: res.data[0].flags?.svg });
         });
       modalHandler();
-    } else {
-      alert("The code did not match. Try again.");
     }
   };
 
