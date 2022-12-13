@@ -42,6 +42,7 @@ function SingleRecipe() {
 
   const closeHandler = () => {
     setWarning();
+    setResult("");
   };
 
   const submitHandler = () => {
@@ -52,7 +53,7 @@ function SingleRecipe() {
       alert("Your post has been deleted successfully!");
       window.location.reload();
     } else {
-      setResult("The code did not match. Try again.");
+      setResult("The password did not match. Try again.");
     }
   };
 
@@ -109,7 +110,7 @@ function SingleRecipe() {
         <div className="warning">
           <p>
             <strong>
-              Provide the unique code in order to delete this recipe.
+              Provide the password in order to delete this recipe.
             </strong>
           </p>
           <input

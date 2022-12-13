@@ -24,7 +24,7 @@ function AddNew() {
   // Other states
   const [showModal, setShowModal] = useState(false); //To show the CheckPost Modal
   const [showMessage, setShowMessage] = useState(false);
-  const [Allcountries, setAllCountries] = useState([]); // To set countries list on dropdown
+  const [allCountries, setAllCountries] = useState([]); // To set countries list on dropdown
   const [ingredInput, setIngredInput] = useState([
     { quantity: "", ingredient: "" },
   ]); // For adding new ingredients
@@ -37,6 +37,15 @@ function AddNew() {
       setAllCountries(res.data);
     });
   }, []);
+
+  //Sorting countries in ascending order
+  let countryList = [];
+  countryList.push(
+    allCountries.map((el) => {
+      return el.name.common;
+    })
+  );
+  countryList[0].sort();
 
   // On input fields change:
   const changeHandler = (e) => {
@@ -165,10 +174,10 @@ function AddNew() {
             <option value="default" disabled={true}>
               Pick a country..
             </option>
-            {Allcountries.map((el) => {
+            {countryList[0].map((country) => {
               return (
-                <option value={el.name.common} key={el.name.common}>
-                  {el.name.common}
+                <option value={country} key={country}>
+                  {country}
                 </option>
               );
             })}

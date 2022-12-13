@@ -369,6 +369,52 @@
           "ingredient": "Scallions chopped"
         }
       ]
+    },
+    {
+      "id": 10,
+      "passcode": "NXQxkY7r7z2NFMA",
+      "title": "Thai Red Curry (veg)",
+      "author": "www.cookieandkate.com",
+      "country": "Thailand",
+      "flag": "https://flagcdn.com/th.svg",
+      "description": "This Thai red curry recipe is so easy to make at home! It’s much tastier than takeout and healthier, too. Feel free to change up the vegetables (you’ll need about 3 cups total) and skip the kale if you want a more traditional Thai curry. This recipe is vegetarian, vegan, and gluten-free for all to enjoy. Recipe yields 4 servings.",
+      "serving": "For Four People",
+      "image": "https://cookieandkate.com/images/2015/10/red-thai-curry-recipe-1-1.jpg",
+      "instruction": "To cook the rice, bring a large pot of water to boil. Add the rinsed rice and continue boiling for 30 minutes, reducing heat as necessary to prevent overflow. Remove from heat, drain the rice and return the rice to pot. Cover and let the rice rest for 10 minutes or longer, until you’re ready to serve. Just before serving, season the rice to taste with salt and fluff it with a fork.\nTo make the curry, warm a large skillet with deep sides over medium heat. Once it’s hot, add the oil. Add the onion and a sprinkle of salt and cook, stirring often, until the onion has softened and is turning translucent, about 5 minutes. Add the ginger and garlic and cook until fragrant, about 30 seconds, while stirring continuously.\nAdd the bell peppers and carrots. Cook until the bell peppers are fork-tender, 3 to 5 more minutes, stirring occasionally. Then add the curry paste and cook, stirring often, for 2 minutes.\nAdd the coconut milk, water, kale and sugar, and stir to combine. Bring the mixture to a simmer over medium heat. Reduce heat as necessary to maintain a gentle simmer and cook until the peppers, carrots and kale have softened to your liking, about 5 to 10 minutes, stirring occasionally.\nRemove the pot from the heat and season with tamari and rice vinegar. Add salt (I added ¼ teaspoon for optimal flavor), to taste. If the curry needs a little more punch, add ½ teaspoon more tamari, or for more acidity, add ½ teaspoon more rice vinegar. Divide rice and curry into bowls and garnish with chopped cilantro and a sprinkle of red pepper flakes, if you’d like. If you love spicy curries, serve them with sriracha or chili garlic sauce on the side.",
+      "ingredients": [
+        {
+          "quantity": "1.5 cup",
+          "ingredient": "Jasmin Rice"
+        },
+        {
+          "quantity": "1 tbsp",
+          "ingredient": "Oil"
+        },
+        {
+          "quantity": "1 pc",
+          "ingredient": "Onion chopped"
+        },
+        {
+          "quantity": "1 tbsp",
+          "ingredient": "Ginger-garlic minced"
+        },
+        {
+          "quantity": "1 pc",
+          "ingredient": "Red bell pepper julienned"
+        },
+        {
+          "quantity": "3 pcs",
+          "ingredient": "Carrots julienned"
+        },
+        {
+          "quantity": "2 tbsp",
+          "ingredient": "Thai red curry paste"
+        },
+        {
+          "quantity": "2 tbsp",
+          "ingredient": "Fresh lime juice"
+        }
+      ]
     }
   ]
 }
