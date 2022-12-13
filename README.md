@@ -14,3 +14,17 @@ User also can delete the post after 'providing the unique password generated at 
 1. CSS
 1. JSON Server
 1. RestCountries API
+
+### Screenshots
+
+#### 1.
+
+ <img src="./src/Assets/recipie-1.webp" style="width: 600px" alt="Screenshot of a ReciPie website">
+
+#### 2.
+
+ <img src="./src/Assets/recipie-2.webp" style="width: 600px" alt="Screenshot of a ReciPie website">
+
+#### 3.
+
+ <img src="./src/Assets/recipie-3.webp" style="width: 600px" alt="Screenshot of a ReciPie website">
