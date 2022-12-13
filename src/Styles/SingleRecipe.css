@@ -16,12 +16,11 @@
 
 .bigFlag {
   position: absolute;
-  top: -102%;
-  right: 1rem;
+  top: -105%;
+  right: 1.5rem;
+  border: 1px solid white;
   width: 150px;
   height: 100px;
-  border: 2px solid #fff;
-  background: #fff;
 }
 
 .other-info {

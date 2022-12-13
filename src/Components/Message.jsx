@@ -12,10 +12,7 @@ function Message({ passcode, closeMessage }) {
         </p>
 
         <strong>Keep it secret and safe.</strong>
-        <p>
-          It is needed in case you would like to update or, delete the post in
-          future.
-        </p>
+        <p>It is needed in case you need to delete the post.</p>
         <button className="btnOrange" onClick={closeMessage}>
           Close
         </button>

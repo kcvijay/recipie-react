@@ -27,6 +27,16 @@ h2 {
   padding: 0.8rem 1.5rem;
   margin: 1rem 0;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btnGreen:hover,
+.btnGreen:active,
+.btnOrange:hover,
+.btnOrange:active,
+.btnRed:hover,
+.btnRed:active {
+  opacity: 0.9;
 }
 
 .btnOrange {

@@ -6,8 +6,6 @@ header {
   align-items: center;
   background-color: #fff;
   box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);
-  border-bottom: 2px solid #fff;
-  border-top: 2px solid #fff;
   z-index: 9999;
 }
 
@@ -32,10 +30,6 @@ header {
   color: orange;
 }
 
-.nav {
-  font-family: "PT Serif", serif;
-}
-
 .nav ul li {
   list-style-type: none;
   display: inline-block;
@@ -53,11 +47,11 @@ header {
 }
 
 .nav ul li a.active {
-  background-color: #d3d3d3;
+  background-color: #cbcbcb;
 }
 
 .nav ul li a:hover {
-  background-color: #e4e4e4;
+  background-color: #ededed;
 }
 
 .nav ul li:last-child a {
