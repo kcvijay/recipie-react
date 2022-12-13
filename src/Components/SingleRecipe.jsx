@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 import "../Styles/SingleRecipe.css";
@@ -10,7 +10,6 @@ function SingleRecipe() {
   const [warning, setWarning] = useState(false);
   const [code, setCode] = useState("");
   const [result, setResult] = useState("");
-  const navigate = useNavigate();
 
   // Receiving parameters from AllRecipies recipe card
   useEffect(() => {
@@ -18,6 +17,9 @@ function SingleRecipe() {
       .get(`http://localhost:3001/recipies/${params.singlerecipe}`)
       .then((res) => {
         setData(res.data);
+      })
+      .catch((err) => {
+        window.location.replace("/page-not-found"); // On error (page not available), redirect to NotFound page.
       });
   }, []);
 
@@ -47,7 +49,8 @@ function SingleRecipe() {
       return;
     } else if (data.passcode === code) {
       axios.delete(`http://localhost:3001/recipies/${params.singlerecipe}`);
-      setResult("Your post has been deleted successfully!");
+      alert("Your post has been deleted successfully!");
+      window.location.reload();
     } else {
       setResult("The code did not match. Try again.");
     }
@@ -59,22 +62,28 @@ function SingleRecipe() {
       <div className="recipe-title">
         <img className="bigFlag" src={data.flag} alt="country flag" />
         <h2 className="title">{data.title}</h2>
-        <div className="author-name">
+        <div className="other-info">
           <div>
             <p>Author:&nbsp;{data.author}</p>
             <p>Origin: &nbsp;{data.country}</p>
-            <p className="material-icons">local_dining</p>
-            <span>{data.serving}</span>
+          </div>
+          <div>
+            <i className="material-icons">dining</i> <span>{data.serving}</span>
           </div>
         </div>
       </div>
       <hr />
       <div className="description-table-wrapper">
-        <div className="description">
-          <h3>Description</h3>
-          <p>{data.description}</p>
+        <div className="grid-left">
+          <div className="description">
+            <h3>Description</h3>
+            <p>{data.description}</p>
+          </div>
+          <div className="recipe-instruction">
+            <h3>Instruction</h3>
+            <p>{data.instruction}</p>
+          </div>
         </div>
-
         <table>
           <thead>
             <tr>
@@ -85,10 +94,7 @@ function SingleRecipe() {
           <tbody>{allIngredients}</tbody>
         </table>
       </div>
-      <div className="recipe-instruction">
-        <h3>Instruction</h3>
-        <p>{data.instruction}</p>
-      </div>
+
       <div className="buttons">
         <Link to="/browseallrecipies" className="btnOrange">
           Back to Recipies
@@ -98,13 +104,12 @@ function SingleRecipe() {
         </button>
       </div>
 
-      {/* On Delete button click*/}
+      {/* Show warning on Delete button click*/}
       {warning && (
         <div className="warning">
           <p>
             <strong>
-              This action requires a unique code generated on initial recipe
-              posting.
+              Provide the unique code in order to delete this recipe.
             </strong>
           </p>
           <input

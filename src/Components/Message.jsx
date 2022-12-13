@@ -11,7 +11,7 @@ function Message({ passcode, closeMessage }) {
           <code className="red-text">{passcode}</code>
         </p>
 
-        <strong>Keep is secret and safe.</strong>
+        <strong>Keep it secret and safe.</strong>
         <p>
           It is needed in case you would like to update or, delete the post in
           future.

@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Yeseva+One&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Yeseva+One&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +7,7 @@
 
 body {
   font-family: "Yeseva One", serif;
-  font-family: "PT Serif", serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 h2 {

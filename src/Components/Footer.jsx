@@ -13,13 +13,13 @@ function Footer() {
         <div className="sub-cta">
           <p>Get notified instantly for the new recipe every time.</p>
           <input type="email" id="sub-email" placeholder="Your e-mail" />
-          <a href="/" className="btnOrange">
+          <button href="/" id="btn-sub">
             Subscribe now
-          </a>
+          </button>
         </div>
         <div className="footer-nav-links">
           <Link to="/browseallrecipies">All Recipies</Link>
-          <Link to="/addnewrecipe">Add a New Recipe</Link>
+          <Link to="/addnewrecipe">New Recipe</Link>
           <Link to="/about">About us</Link>
         </div>
       </div>
