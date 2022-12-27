@@ -8,6 +8,7 @@
 body {
   font-family: "Yeseva One", serif;
   font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
 }
 
 h2 {

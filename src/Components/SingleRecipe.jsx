@@ -59,9 +59,11 @@ function SingleRecipe() {
 
   return (
     <div className="recipe-wrapper">
-      <img className="food-image" src={data.image} alt={data.title} />
-      <div className="recipe-title">
+      <div className="image">
+        <img className="food-image" src={data.image} alt={data.title} />
         <img className="bigFlag" src={data.flag} alt="country flag" />
+      </div>
+      <div className="recipe-title">
         <h2 className="title">{data.title}</h2>
         <div className="other-info">
           <div>

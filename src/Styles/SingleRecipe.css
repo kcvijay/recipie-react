@@ -4,23 +4,38 @@
   line-height: 2;
 }
 
+.image {
+  position: relative;
+}
 .food-image {
   min-width: 1000px;
   height: 400px;
   object-fit: cover;
 }
-.recipe-title {
-  text-align: center;
-  position: relative;
-}
-
 .bigFlag {
   position: absolute;
-  top: -105%;
+  bottom: -2.5rem;
+  right: -2.5rem;
   right: 1.5rem;
-  border: 1px solid white;
+  background-color: white;
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ddd;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.bigFlag:hover {
   width: 150px;
   height: 100px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.recipe-title {
+  text-align: center;
 }
 
 .other-info {

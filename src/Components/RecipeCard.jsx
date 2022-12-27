@@ -19,7 +19,7 @@ function RecipeCard({ title, country, author, image, id, flag }) {
             Author: <span>{author}</span>
           </p>
         </div>
-        <Link to={`${id}`}>View More</Link>
+        <Link to={`${id}`}>View Recipe</Link>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ footer {
   grid-template-columns: 1fr 1fr;
   padding: 2rem;
   column-gap: 2rem;
+  height: 280px;
 }
 
 footer h2 {
