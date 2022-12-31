@@ -1,20 +1,18 @@
 footer {
-  background-color: #333;
+  background: #333;
   color: #fff;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 2rem;
-  column-gap: 2rem;
-  height: 280px;
+  margin-top: auto;
+  height: 265px;
+  text-align: center;
+  padding: 0.5rem;
 }
 
-footer h2 {
-  text-align: left;
-  margin: 0;
+.footer-logo {
+  color: #fff;
 }
 
 .sub-cta {
-  margin: 1.5rem 0;
+  margin: 1rem 0;
   width: auto;
   color: #fff;
 }
@@ -39,12 +37,12 @@ footer h2 {
 }
 
 #btn-sub {
-  margin-left: -125px;
   padding: 0 1rem;
   height: 40px;
   border: 1px solid orange;
   background: orange;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 #btn-sub:hover,
@@ -57,20 +55,18 @@ footer h2 {
   text-align: right;
 }
 
-.social-icons {
-  margin: 1rem 0 2rem 0;
-}
-
-.social-icons i {
-  font-size: 3rem;
-  color: #fff;
-  text-decoration: none;
-  margin: 0 0.5rem;
-  vertical-align: middle;
-}
-
 .social-icons a {
-  font-size: 2rem;
-  color: #fff;
-  text-decoration: none;
+  display: inline-block;
+}
+
+.social-icons a img {
+  width: 40px;
+  margin: 0.5rem;
+  filter: invert(1);
+  transition: all 0.3s ease;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
