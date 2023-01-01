@@ -1,0 +1,37 @@
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+.feature {
+  max-width: 350px;
+  padding: 1.5rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 11px;
+}
+
+.feature:first-child,
+.feature:nth-child(3) {
+  justify-self: flex-end;
+}
+
+.feature:nth-child(2),
+.feature:nth-child(4) {
+  justify-self: flex-start;
+}
+
+.feature-header i {
+  font-size: 3rem;
+  color: #555;
+}
+
+.feature-header h2 {
+  font-size: 1.5rem;
+  text-align: left;
+  margin-left: 0;
+}

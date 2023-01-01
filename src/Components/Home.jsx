@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Hero from "../Components/Hero";
+import Hero from "./Hero";
+import Features from "./Features";
 
 import classes from "../Styles/Home.module.css";
 
@@ -13,9 +14,8 @@ function Home() {
         <div className={classes.card}>
           <h2>Browse Recipies</h2>
           <div className={classes.cardBody}>
-            You can easily view the available recipies users posted from all
-            over the world. Watch and learn what deliciousness the world is
-            offering for you.
+            You can view all recipies users posted from all over the world.
+            Watch and learn what deliciousness the world is offering for you.
           </div>
           <Link to="/browseallrecipies">Browse All Recipies</Link>
         </div>
@@ -23,9 +23,8 @@ function Home() {
         <div className={classes.card}>
           <h2>Add a Recipe</h2>
           <div className={classes.cardBody}>
-            You can not just view others' recipies but, also post yours. Just
-            fill the recipe form and publish your awesome food recipe for
-            everyone to see.
+            You can not just view others' recipies but, also post yours. Fill
+            the recipe form and publish your awesome food recipe for everyone.
           </div>
           <Link to="/addnewrecipe">Add a New Recipe</Link>
         </div>
@@ -42,6 +41,8 @@ function Home() {
           </a>
         </div>
       </div>
+      <h2>Features</h2>
+      <Features />
     </div>
   );
 }
