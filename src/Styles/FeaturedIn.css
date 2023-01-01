@@ -1,0 +1,24 @@
+.featured-medias {
+  padding: 2rem;
+  background: #e1e1e1;
+  text-align: center;
+  margin: 100px 0;
+}
+
+.featured-medias p {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.media-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.featured-medias img {
+  height: 30px;
+  opacity: 0.4;
+}

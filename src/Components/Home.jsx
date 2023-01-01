@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Hero from "./Hero";
 import Features from "./Features";
+import FeaturedIn from "./FeaturedIn";
 
 import classes from "../Styles/Home.module.css";
 
@@ -43,6 +44,7 @@ function Home() {
       </div>
       <h2>Features</h2>
       <Features />
+      <FeaturedIn />
     </div>
   );
 }
