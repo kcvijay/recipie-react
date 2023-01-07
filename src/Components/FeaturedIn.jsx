@@ -5,7 +5,7 @@ import kp from "../Assets/kp.png";
 
 import "../Styles/FeaturedIn.css";
 
-function FeaturedIn() {
+const FeaturedIn = () => {
   return (
     <div className="featured-medias">
       <p>Featured in</p>
@@ -15,6 +15,6 @@ function FeaturedIn() {
       </div>
     </div>
   );
-}
+};
 
 export default FeaturedIn;

@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/About.css";
 
-function About() {
+const About = () => {
   return (
     <div className="about-wrapper">
       <h2>About this website</h2>
@@ -23,6 +23,6 @@ function About() {
       <p>&mdash;Vijay KC</p>
     </div>
   );
-}
+};
 
 export default About;

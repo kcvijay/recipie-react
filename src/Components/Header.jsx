@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../Styles/Header.css";
 
-function Header() {
+const Header = () => {
   return (
     <header>
       <div className="logo">
@@ -33,6 +33,6 @@ function Header() {
       </nav>
     </header>
   );
-}
+};
 
 export default Header;

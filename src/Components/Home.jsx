@@ -7,7 +7,7 @@ import FeaturedIn from "./FeaturedIn";
 
 import classes from "../Styles/Home.module.css";
 
-function Home() {
+const Home = () => {
   return (
     <div className={classes.home}>
       <Hero />
@@ -47,6 +47,6 @@ function Home() {
       <FeaturedIn />
     </div>
   );
-}
+};
 
 export default Home;

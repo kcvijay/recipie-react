@@ -6,7 +6,7 @@ import insta from "../Assets/instagram.png";
 import tiktok from "../Assets/tiktok.png";
 import linkedin from "../Assets/linkedin.png";
 
-function Footer() {
+const Footer = () => {
   return (
     <footer>
       <h2 className="footer-logo">ReciPie</h2>
@@ -34,6 +34,6 @@ function Footer() {
       <p>Copyright 2022 : Vijay KC</p>
     </footer>
   );
-}
+};
 
 export default Footer;

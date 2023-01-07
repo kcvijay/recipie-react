@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/Message.css";
 
-function Message({ passcode, closeMessage }) {
+const Message = ({ passcode, closeMessage }) => {
   return (
     <div className="overlay">
       <div className="message-box">
@@ -19,6 +19,6 @@ function Message({ passcode, closeMessage }) {
       </div>
     </div>
   );
-}
+};
 
 export default Message;

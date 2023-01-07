@@ -6,7 +6,7 @@ import Message from "./Message";
 
 import "../Styles/AddNew.css";
 
-function AddNew() {
+const AddNew = () => {
   const [data, setData] = useState({
     id: "",
     passcode: "",
@@ -293,6 +293,6 @@ function AddNew() {
       </form>
     </section>
   );
-}
+};
 
 export default AddNew;

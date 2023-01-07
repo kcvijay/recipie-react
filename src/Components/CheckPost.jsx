@@ -1,17 +1,16 @@
 import React from "react";
 import "../Styles/CheckPost.css";
 
-function CheckPost({
+const CheckPost = ({
   title,
   author,
   country,
   description,
   ingredients,
-  quantity,
   instruction,
   closeHandler,
   submitHandler,
-}) {
+}) => {
   return (
     <div className="overlay">
       <div className="checkpost">
@@ -64,6 +63,6 @@ function CheckPost({
       </div>
     </div>
   );
-}
+};
 
 export default CheckPost;

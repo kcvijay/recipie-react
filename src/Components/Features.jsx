@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/Features.css";
 
-function Features() {
+const Features = () => {
   return (
     <div className="features">
       <div className="feature">
@@ -54,6 +54,6 @@ function Features() {
       </div>
     </div>
   );
-}
+};
 
 export default Features;

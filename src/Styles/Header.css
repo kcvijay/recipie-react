@@ -33,6 +33,7 @@ header {
 .nav ul li {
   list-style-type: none;
   display: inline-block;
+  font-family: "Open sans", sans-serif;
 }
 
 .nav ul li a {

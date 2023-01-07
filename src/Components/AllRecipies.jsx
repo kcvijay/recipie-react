@@ -4,7 +4,7 @@ import axios from "axios";
 import RecipeCard from "./RecipeCard";
 import "../Styles/AllRecipies.css";
 
-function AllRecipies() {
+const AllRecipies = () => {
   const [data, setData] = useState({
     search: "",
   });
@@ -41,16 +41,16 @@ function AllRecipies() {
     <div className="allrecipies">
       <h2>All Recipies</h2>
       <div className="filter-wrapper">
-      <input
-        type="text"
-        name="search"
-        id="search"
-        className="card-filter"
-        placeholder="Search recipe by name.."
-        onChange={inputHandler}
-      />
+        <input
+          type="text"
+          name="search"
+          id="search"
+          className="card-filter"
+          placeholder="Search recipe by name.."
+          onChange={inputHandler}
+        />
       </div>
-    
+
       <div className="recipies-wrapper">
         {filteredItems.map((recipe) => {
           return (
@@ -68,6 +68,6 @@ function AllRecipies() {
       </div>
     </div>
   );
-}
+};
 
 export default AllRecipies;

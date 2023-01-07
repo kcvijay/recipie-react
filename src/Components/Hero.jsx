@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import classes from "../Styles/Hero.module.css";
 
-function Hero() {
+const Hero = () => {
   return (
     <div className={classes.hero}>
       <video
@@ -24,6 +24,6 @@ function Hero() {
       </div>
     </div>
   );
-}
+};
 
 export default Hero;

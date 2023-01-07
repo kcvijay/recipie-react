@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "../Styles/RecipeCard.css";
 
-function RecipeCard({ title, country, author, image, id, flag }) {
+const RecipeCard = ({ title, country, author, image, id, flag }) => {
   return (
     <div className="recipe">
       <img className="foodImage" src={image} alt="recipe this and that"></img>
@@ -23,6 +23,6 @@ function RecipeCard({ title, country, author, image, id, flag }) {
       </div>
     </div>
   );
-}
+};
 
 export default RecipeCard;

@@ -4,7 +4,7 @@ import axios from "axios";
 
 import "../Styles/SingleRecipe.css";
 
-function SingleRecipe() {
+const SingleRecipe = () => {
   const params = useParams();
   const [data, setData] = useState([]);
   const [warning, setWarning] = useState(false);
@@ -135,6 +135,6 @@ function SingleRecipe() {
       )}
     </div>
   );
-}
+};
 
 export default SingleRecipe;
