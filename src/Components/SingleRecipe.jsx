@@ -102,8 +102,11 @@ const SingleRecipe = () => {
         <Link to="/browseallrecipies" className="btnOrange">
           Back to Recipies
         </Link>
+        <button className="btnWhite" onClick={warningHandler}>
+          Edit recipe
+        </button>
         <button className="btnRed" onClick={warningHandler}>
-          Delete
+          Delete recipe
         </button>
       </div>
 
@@ -111,9 +114,7 @@ const SingleRecipe = () => {
       {warning && (
         <div className="warning">
           <p>
-            <strong>
-              Provide the password in order to delete this recipe.
-            </strong>
+            <strong>This action requires the password.</strong>
           </p>
           <input
             type="text"
