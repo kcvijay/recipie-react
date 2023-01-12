@@ -250,7 +250,7 @@ const AddNew = () => {
         })}
 
         <button className="btnGreen" onClick={addFields}>
-          Add Ingredients
+          + Add Ingredients
         </button>
         <div>
           <label htmlFor="instruction">Instructions</label>
