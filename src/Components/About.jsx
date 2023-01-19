@@ -13,7 +13,7 @@ const About = () => {
       </p>
       <p>
         The purpose of this project is to learn basics of React functional
-        components, react-router and GET, POST and DELETE actions of JSON
+        components, react-router and GET, POST and DELETE methods of JSON
         Server.
       </p>
       <p>

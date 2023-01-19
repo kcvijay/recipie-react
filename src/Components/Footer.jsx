@@ -7,6 +7,8 @@ import tiktok from "../Assets/tiktok.png";
 import linkedin from "../Assets/linkedin.png";
 
 const Footer = () => {
+  const year = new Date().getFullYear;
+
   return (
     <footer>
       <h2 className="footer-logo">ReciPie</h2>
@@ -31,7 +33,7 @@ const Footer = () => {
           <img src={linkedin} alt="Link to linkedin page"></img>
         </a>
       </div>
-      <p>Copyright 2022 : Vijay KC</p>
+      <p>Copyright {year} : Vijay KC</p>
     </footer>
   );
 };

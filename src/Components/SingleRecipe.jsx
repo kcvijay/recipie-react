@@ -10,9 +10,11 @@ const SingleRecipe = () => {
   const [warning, setWarning] = useState(false);
   const [code, setCode] = useState("");
   const [result, setResult] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // Receiving parameters from AllRecipies recipe card
   useEffect(() => {
+    setLoading(true);
     axios
       .get(`http://localhost:3001/recipies/${params.singlerecipe}`)
       .then((res) => {
@@ -21,7 +23,8 @@ const SingleRecipe = () => {
       .catch((err) => {
         window.location.replace("/page-not-found"); // On error (page not available), redirect to NotFound page.
       });
-  }, []);
+    setLoading(false);
+  }, [params]);
 
   const allIngredients = data.ingredients?.map((item) => {
     return (
@@ -56,6 +59,10 @@ const SingleRecipe = () => {
       setResult("The password did not match. Try again.");
     }
   };
+
+  if (loading) {
+    <h3>Getting recipe...</h3>;
+  }
 
   return (
     <div className="recipe-wrapper">
