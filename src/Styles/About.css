@@ -3,3 +3,7 @@
   margin: 50px auto;
   max-width: 600px;
 }
+
+.about-wrapper p {
+  margin: 1rem 0;
+}
