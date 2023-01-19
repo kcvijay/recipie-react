@@ -52,8 +52,10 @@ const SingleRecipe = () => {
     if (!code) {
       return;
     } else if (data.passcode === code) {
-      axios.delete(`http://localhost:3001/recipies/${params.singlerecipe}`);
-      alert("Your post has been deleted successfully!");
+      if (window.confirm("Are your sure you want to delete the post?")) {
+        axios.delete(`http://localhost:3001/recipies/${params.singlerecipe}`);
+        alert("Your post has been deleted successfully!");
+      }
       window.location.reload();
     } else {
       setResult("The password did not match. Try again.");
