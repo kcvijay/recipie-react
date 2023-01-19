@@ -129,11 +129,16 @@ const AddNew = () => {
   };
 
   // On form submit:
-  const submitHandler = (e) => {
+  // If server is not active, Alert error message on recipe posting.
+  const submitHandler = async (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3001/recipies", data);
-    modalHandler();
-    setShowMessage(true);
+    try {
+      await axios.post("http://localhost:3001/recipies", data);
+      modalHandler();
+      setShowMessage(true);
+    } catch (err) {
+      alert("There has been some error. " + err);
+    }
   };
 
   return (
