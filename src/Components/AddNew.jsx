@@ -8,7 +8,7 @@ import "../Styles/AddNew.css";
 
 const AddNew = () => {
   const [data, setData] = useState({
-    id: "",
+    id: crypto.randomUUID(),
     passcode: "",
     title: "",
     author: "",
@@ -146,7 +146,7 @@ const AddNew = () => {
       <h2>Add a New Recipe</h2>
       <form onSubmit={checkPostHandler}>
         <div>
-          <label htmlFor="title">Name of the Food</label>
+          <label htmlFor="title">Name of the Recipe</label>
           <input
             type="text"
             name="title"
@@ -199,7 +199,7 @@ const AddNew = () => {
           ></textarea>
         </div>
         <div>
-          <label htmlFor="serving">Serving:</label>
+          <label htmlFor="serving">Serving</label>
           <select
             name="serving"
             id="serving"
@@ -209,10 +209,10 @@ const AddNew = () => {
             <option value="default" disabled>
               Pick a serving size..
             </option>
-            <option value="For Two People">2 People</option>
-            <option value="For Four People">4 People</option>
-            <option value="For Six People">6 People</option>
-            <option value="For Eight People">8 People</option>
+            <option value="For 2 People">2 People</option>
+            <option value="For 4 People">4 People</option>
+            <option value="For 6 People">6 People</option>
+            <option value="For 8 People">8 People</option>
           </select>
         </div>
 
@@ -227,6 +227,7 @@ const AddNew = () => {
             required
           />
         </div>
+        <label>Ingredients</label>
 
         {/* Adding more ingredient fields on click */}
         {ingredInput.map((ingredient, index) => {
@@ -255,7 +256,7 @@ const AddNew = () => {
         })}
 
         <button className="btnGreen" onClick={addFields}>
-          + Add Ingredients
+          &#65291; Add Ingredients
         </button>
         <div>
           <label htmlFor="instruction">Instructions</label>

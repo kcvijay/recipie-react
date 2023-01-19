@@ -11,9 +11,8 @@
 }
 
 .checkpost {
-  min-width: 90vw;
-  max-width: 1200px;
-  height: 70vh;
+  max-width: 600px;
+  height: auto;
   background-color: #f1f1f1;
   padding: 1.5rem;
   line-height: 1.5;
@@ -25,7 +24,9 @@ ul li {
 }
 
 .post-wrapper {
-  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
 }
 
 .post-subheader {

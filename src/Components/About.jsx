@@ -21,6 +21,9 @@ const About = () => {
         recipies and delete specific recipe providing the password created at
         the moment of posting.
       </p>
+      <p>
+        Images and Videos are sourced from www.pexels.com and www.flaticon.com.
+      </p>
       <p>Happy browsing!</p>
       <p>&mdash;Vijay KC</p>
     </div>

@@ -10,6 +10,7 @@ const SingleRecipe = () => {
   const [warning, setWarning] = useState(false);
   const [code, setCode] = useState("");
   const [result, setResult] = useState("");
+  const [userAction, setUserAction] = useState("");
   const [loading, setLoading] = useState(false);
 
   // Receiving parameters from AllRecipies recipe card
@@ -35,8 +36,9 @@ const SingleRecipe = () => {
     );
   });
 
-  const warningHandler = () => {
+  const warningHandler = (e) => {
     setWarning(!warning);
+    setUserAction(e.target.id);
   };
 
   const changeHandler = (e) => {
@@ -48,16 +50,18 @@ const SingleRecipe = () => {
     setResult("");
   };
 
-  const submitHandler = () => {
+  const submitHandler = (e) => {
     if (!code) {
       return;
-    } else if (data.passcode === code) {
+    } else if (data.passcode === code && userAction === "delete") {
       // source: stackoverflow.
       if (window.confirm("Are your sure you want to delete the post?")) {
         axios.delete(`http://localhost:3001/recipies/${params.singlerecipe}`);
         alert("Your post has been deleted successfully!");
         window.location.reload();
       } else return;
+    } else if (data.passcode === code && userAction === "edit") {
+      window.location.replace("/update");
     } else {
       setResult("The password did not match. Try again.");
     }
@@ -112,12 +116,18 @@ const SingleRecipe = () => {
         <Link to="/browseallrecipies" className="btnOrange">
           Back to Recipies
         </Link>
-        <button className="btnWhite" onClick={warningHandler}>
-          Edit recipe
-        </button>
-        <button className="btnRed" onClick={warningHandler}>
-          Delete recipe
-        </button>
+
+        <div className="btn-action-wrapper">
+          <p>What you want do with this recipe? &#11015;</p>
+          <div className="action-btns">
+            <Link id="edit" onClick={warningHandler}>
+              Edit recipe
+            </Link>
+            <Link id="delete" onClick={warningHandler}>
+              Delete recipe
+            </Link>
+          </div>
+        </div>
       </div>
 
       {/* Show warning on Delete button click*/}

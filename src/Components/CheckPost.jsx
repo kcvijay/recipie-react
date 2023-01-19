@@ -14,9 +14,8 @@ const CheckPost = ({
   return (
     <div className="overlay">
       <div className="checkpost">
-        <h3>Want to review your post?</h3>
+        <h2>{title}</h2>
         <div className="post-wrapper">
-          <h2>{title}</h2>
           <div className="text-box">
             <p className="post-subheader">
               Author:&nbsp;<span>{author}</span>

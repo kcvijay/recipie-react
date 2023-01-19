@@ -83,22 +83,60 @@ tbody tr td:last-child {
   align-items: center;
 }
 
-.warning {
-  text-align: center;
-  padding: 1rem;
-  margin-top: 1rem;
-  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
-  animation: fadeIn 1s ease-in-out;
+.btn-action-wrapper {
+  position: relative;
+  cursor: pointer;
+  z-index: 100;
 }
 
-@keyframes fadeIn {
+.action-btns {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  top: 2rem;
+  left: 0;
+  border: 1px solid #fff;
+}
+
+.action-btns a {
+  display: block;
+  width: 100%;
+  color: #fff;
+  font-size: 1rem;
+  background-color: #800080;
+  text-align: center;
+  text-decoration: none;
+  padding: 1rem;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-action-wrapper:hover .action-btns {
+  opacity: 1;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
   0% {
     opacity: 0;
+    top: 1.5rem;
+    z-index: -100;
   }
 
   100% {
     opacity: 1;
   }
+}
+
+.action-btns a:hover {
+  filter: grayscale(0.2);
+}
+.warning {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
 }
 
 #code-input {

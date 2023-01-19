@@ -29,7 +29,7 @@ const AllRecipies = () => {
   if (recipies.length <= 0) {
     return (
       <div className="fallback-wrapper">
-        <h2>There are no recipies</h2>
+        <h2>There are no recipies.</h2>
         <Link to="/addnewrecipe" className="btnOrange">
           Add New Recipe
         </Link>
