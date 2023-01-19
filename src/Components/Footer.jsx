@@ -7,7 +7,7 @@ import tiktok from "../Assets/tiktok.png";
 import linkedin from "../Assets/linkedin.png";
 
 const Footer = () => {
-  const year = new Date().getFullYear;
+  const year = new Date().getFullYear();
 
   return (
     <footer>
