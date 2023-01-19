@@ -234,20 +234,20 @@ const AddNew = () => {
           return (
             <div className="ingredients-wrapper" key={index}>
               <div>
-                <label htmlFor="quantity">Quantity</label>
-                <input
-                  type="text"
-                  name="quantity"
-                  id="quantity"
-                  onChange={(e) => ingredChangeHandler(e, index)}
-                />
-              </div>
-              <div>
                 <label htmlFor="ingredient">Ingredient</label>
                 <input
                   type="text"
                   name="ingredient"
                   id="ingredient"
+                  onChange={(e) => ingredChangeHandler(e, index)}
+                />
+              </div>
+              <div>
+                <label htmlFor="quantity">Quantity</label>
+                <input
+                  type="text"
+                  name="quantity"
+                  id="quantity"
                   onChange={(e) => ingredChangeHandler(e, index)}
                 />
               </div>
