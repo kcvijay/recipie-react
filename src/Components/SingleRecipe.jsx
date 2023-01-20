@@ -9,8 +9,8 @@ const SingleRecipe = () => {
   const [data, setData] = useState([]);
   const [warning, setWarning] = useState(false);
   const [code, setCode] = useState("");
-  const [result, setResult] = useState("");
   const [userAction, setUserAction] = useState("");
+  const [showUpdate, setShowUpdate] = useState(false);
   const [loading, setLoading] = useState(false);
 
   // Receiving parameters from AllRecipies recipe card
@@ -30,8 +30,8 @@ const SingleRecipe = () => {
   const allIngredients = data.ingredients?.map((item) => {
     return (
       <tr key={item.ingredient}>
-        <td>{item.ingredient}</td>
         <td>{item.quantity}</td>
+        <td>{item.ingredient}</td>
       </tr>
     );
   });
@@ -47,7 +47,6 @@ const SingleRecipe = () => {
 
   const closeHandler = () => {
     setWarning();
-    setResult("");
   };
 
   const submitHandler = (e) => {
@@ -61,10 +60,14 @@ const SingleRecipe = () => {
         window.location.reload();
       } else return;
     } else if (data.passcode === code && userAction === "edit") {
-      window.location.replace("/update");
+      setShowUpdate(true);
     } else {
-      setResult("The password did not match. Try again.");
+      alert("The password did not match. Try again.");
     }
+  };
+
+  const updateHandler = () => {
+    axios.patch(`http://localhost:3001/recipies/${params.singlerecipe}`);
   };
 
   if (loading) {
@@ -78,16 +81,14 @@ const SingleRecipe = () => {
         <img className="bigFlag" src={data.flag} alt="country flag" />
       </div>
       <div className="recipe-title">
-        <h2 className="title">{data.title}</h2>
-        <div className="other-info">
-          <div>
-            <p>Author:&nbsp;{data.author}</p>
-            <p>Origin: &nbsp;{data.country}</p>
-          </div>
-          <div>
-            <i className="material-icons">dining</i> <span>{data.serving}</span>
-          </div>
-        </div>
+        <h2 className="title">
+          {data.title}{" "}
+          <span className="country-tooltip">
+            <p>{data.country}</p>
+          </span>
+        </h2>
+        <p>{data.author}</p>
+        <i className="material-icons">dining</i> <span>{data.serving}</span>
       </div>
       <hr />
       <div className="description-table-wrapper">
@@ -104,8 +105,8 @@ const SingleRecipe = () => {
         <table>
           <thead>
             <tr>
-              <th>Ingredients</th>
               <th>Quantity</th>
+              <th>Ingredients</th>
             </tr>
           </thead>
           <tbody>{allIngredients}</tbody>
@@ -118,7 +119,7 @@ const SingleRecipe = () => {
         </Link>
 
         <div className="btn-action-wrapper">
-          <p>What you want do with this recipe? &#11015;</p>
+          <p>More Recipe Actions</p>
           <div className="action-btns">
             <Link id="edit" onClick={warningHandler}>
               Edit recipe
@@ -142,18 +143,34 @@ const SingleRecipe = () => {
             required
             onChange={changeHandler}
           ></input>
-
-          <p className="resultTxt">{result}</p>
           <div className="warning-buttons">
-            <button className="btnRed" onClick={closeHandler}>
+            <Link className="btnRed" onClick={closeHandler}>
               Close
-            </button>
-            <button className="btnGreen" onClick={submitHandler}>
+            </Link>
+            <Link
+              className="btnGreen"
+              onClick={submitHandler}
+              to={`${data.id}`}
+            >
               Submit
-            </button>
+            </Link>
           </div>
         </div>
       )}
+      {/* {showUpdate && (
+        <CheckPost
+          title={data.title}
+          author={data.author}
+          country={data.country}
+          serving={data.serving}
+          quantity={data.quantity}
+          ingredients={data.ingredients}
+          description={data.description}
+          instruction={data.instruction}
+          submitHandler={updateHandler}
+          true={false}
+        />
+      )} */}
     </div>
   );
 };

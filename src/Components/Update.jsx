@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
-import CheckPost from "./CheckPost";
-import Message from "./Message";
-
-import "../Styles/AddNew.css";
-
-const AddNew = () => {
-  const [data, setData] = useState({
-    id: crypto.randomUUID(),
-    passcode: "",
+const Update = () => {
+  const params = useParams();
+  const [input, setInput] = useState({
     title: "",
     author: "",
     country: "",
@@ -20,6 +15,8 @@ const AddNew = () => {
     instruction: "",
     ingredients: {},
   });
+
+  const [data, setData] = useState([]);
 
   // Other states
   const [showModal, setShowModal] = useState(false); //To show the CheckPost Modal
@@ -38,6 +35,14 @@ const AddNew = () => {
     });
   }, []);
 
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3001/recipies/${params.updaterecipe}`)
+      .then((res) => {
+        setData(res.data);
+      });
+  });
+
   //Sorting countries in ascending order
   let countryList = [];
   countryList.push(
@@ -49,7 +54,7 @@ const AddNew = () => {
 
   // On input fields change:
   const changeHandler = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+    setInput({ ...data, [e.target.name]: e.target.value });
   };
 
   // On adding fields button
@@ -122,7 +127,7 @@ const AddNew = () => {
       axios
         .get(`https://restcountries.com/v3.1/name/${data.country}`)
         .then((res) => {
-          setData({ ...data, flag: res.data[0].flags?.svg });
+          setData({ ...input, flag: res.data[0].flags?.svg });
         });
       modalHandler();
     }
@@ -143,7 +148,7 @@ const AddNew = () => {
 
   return (
     <section className="addNewWrapper">
-      <h2>Add a New Recipe</h2>
+      <h2>Update Recipe</h2>
       <form onSubmit={checkPostHandler}>
         <div>
           <label htmlFor="title">Name of the Recipe</label>
@@ -151,6 +156,7 @@ const AddNew = () => {
             type="text"
             name="title"
             id="title"
+            value={data.title}
             onChange={changeHandler}
             required
           ></input>
@@ -162,6 +168,7 @@ const AddNew = () => {
             type="text"
             name="author"
             id="author"
+            value={data.author}
             onChange={changeHandler}
             required
           ></input>
@@ -172,6 +179,7 @@ const AddNew = () => {
           <select
             name="country"
             id="country"
+            value={data.country}
             onChange={changeHandler}
             defaultValue={"default"}
             required
@@ -194,6 +202,7 @@ const AddNew = () => {
           <textarea
             name="description"
             id="description"
+            value={data.description}
             onChange={changeHandler}
             required
           ></textarea>
@@ -203,6 +212,7 @@ const AddNew = () => {
           <select
             name="serving"
             id="serving"
+            value={data.serving}
             defaultValue={"default"}
             onChange={changeHandler}
           >
@@ -222,6 +232,7 @@ const AddNew = () => {
             type="url"
             name="image"
             id="image"
+            value={data.image}
             placeholder="For ex. https://website.com/images/image.jpg"
             onChange={changeHandler}
             required
@@ -263,6 +274,7 @@ const AddNew = () => {
           <textarea
             name="instruction"
             id="instruction"
+            value={data.instruction}
             onChange={changeHandler}
           ></textarea>
         </div>
@@ -282,7 +294,7 @@ const AddNew = () => {
         <button className="btnOrange" type="submit" id="submit">
           Post Recipe
         </button>
-        {showModal && (
+        {/* {showModal && (
           <CheckPost
             {...data}
             closeHandler={modalHandler}
@@ -296,10 +308,10 @@ const AddNew = () => {
             passcode={data.passcode}
             closeMessage={messageCloseHandler}
           />
-        )}
+        )} */}
       </form>
     </section>
   );
 };
 
-export default AddNew;
+export default Update;

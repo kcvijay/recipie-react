@@ -34,7 +34,21 @@
 }
 
 .recipe-title {
+  position: relative;
   text-align: center;
+  margin-bottom: 2rem;
+}
+
+.country-tooltip {
+  position: absolute;
+  background-color: orange;
+  color: #fff;
+  border-radius: 7px;
+  padding: 0 10px;
+  margin-left: 1rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .other-info {
@@ -53,7 +67,7 @@
 .description-table-wrapper {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 5rem;
+  gap: 2.5rem;
   margin: 2rem 0;
 }
 
@@ -66,11 +80,12 @@ table th {
   border-bottom: 1px solid #e0e0e0;
   padding: 0.5rem 0;
   text-align: left;
+  width: 50%;
 }
 
 thead tr th:last-child,
 tbody tr td:last-child {
-  text-align: center;
+  text-align: left;
 }
 
 .recipe-instruction {
@@ -89,27 +104,39 @@ tbody tr td:last-child {
   z-index: 100;
 }
 
+.btn-action-wrapper p {
+  background: #ddd;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+}
+
 .action-btns {
   opacity: 0;
+  overflow: hidden;
   position: absolute;
   width: 100%;
-  top: 2rem;
+  top: 4rem;
   left: 0;
-  border: 1px solid #fff;
+  background-color: #fff;
+  border: 0.5px solid #333;
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
 }
 
 .action-btns a {
   display: block;
   width: 100%;
-  color: #fff;
+  color: #333;
   font-size: 1rem;
-  background-color: #800080;
   text-align: center;
   text-decoration: none;
   padding: 1rem;
-  border: 1px solid #fff;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+.action-btns a:first-child {
+  border-bottom: 0.5px solid #333;
 }
 
 .btn-action-wrapper:hover .action-btns {
@@ -121,7 +148,6 @@ tbody tr td:last-child {
   0% {
     opacity: 0;
     top: 1.5rem;
-    z-index: -100;
   }
 
   100% {
@@ -130,7 +156,7 @@ tbody tr td:last-child {
 }
 
 .action-btns a:hover {
-  filter: grayscale(0.2);
+  background-color: #f1f1f1;
 }
 .warning {
   text-align: center;

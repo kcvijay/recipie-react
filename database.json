@@ -415,6 +415,28 @@
           "ingredient": "Fresh lime juice"
         }
       ]
+    },
+    {
+      "id": "bef51551-862c-419d-bf5a-7a00d15c54ed",
+      "passcode": "VhOMpJAn3QTfUdc",
+      "title": "Sample food recipe",
+      "author": "Me",
+      "country": "Bahamas",
+      "flag": "https://flagcdn.com/bs.svg",
+      "description": "This is a food recipe",
+      "serving": "For 8 People",
+      "image": "https://img.freepik.com/free-photo/top-view-assortment-vegetables-paper-bag_23-2148853335.jpg?w=826&t=st=1674154699~exp=1674155299~hmac=3c0c7a4263ece96334c20b57db47677e571a60973ace2923a19aec9d4d399e43",
+      "instruction": "Now cook",
+      "ingredients": [
+        {
+          "quantity": "1",
+          "ingredient": "Something"
+        },
+        {
+          "quantity": "2",
+          "ingredient": "Another something"
+        }
+      ]
     }
   ]
 }
