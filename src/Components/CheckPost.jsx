@@ -13,7 +13,7 @@ const CheckPost = ({
 }) => {
   return (
     <div className="overlay">
-      <div className="checkpost" contentEditable={true}>
+      <div className="checkpost">
         <h2>{title}</h2>
         <div className="post-wrapper">
           <div className="text-box">

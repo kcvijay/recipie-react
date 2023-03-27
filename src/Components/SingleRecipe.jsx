@@ -52,22 +52,18 @@ const SingleRecipe = () => {
   const submitHandler = (e) => {
     if (!code) {
       return;
-    } else if (data.passcode === code && userAction === "delete") {
+    } else if (userAction === "delete") {
       // source: stackoverflow.
       if (window.confirm("Are your sure you want to delete the post?")) {
         axios.delete(`http://localhost:3001/recipies/${params.singlerecipe}`);
         alert("Your post has been deleted successfully!");
         window.location.reload();
       } else return;
-    } else if (data.passcode === code && userAction === "edit") {
+    } else if (userAction === "edit") {
       setShowUpdate(true);
     } else {
       alert("The password did not match. Try again.");
     }
-  };
-
-  const updateHandler = () => {
-    axios.patch(`http://localhost:3001/recipies/${params.singlerecipe}`);
   };
 
   if (loading) {
@@ -157,20 +153,6 @@ const SingleRecipe = () => {
           </div>
         </div>
       )}
-      {/* {showUpdate && (
-        <CheckPost
-          title={data.title}
-          author={data.author}
-          country={data.country}
-          serving={data.serving}
-          quantity={data.quantity}
-          ingredients={data.ingredients}
-          description={data.description}
-          instruction={data.instruction}
-          submitHandler={updateHandler}
-          true={false}
-        />
-      )} */}
     </div>
   );
 };

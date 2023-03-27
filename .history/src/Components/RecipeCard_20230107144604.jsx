@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import "../Styles/RecipeCard.css";
 
 const RecipeCard = ({ title, country, author, image, id, flag }) => {

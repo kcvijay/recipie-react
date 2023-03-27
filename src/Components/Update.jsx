@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import CheckPost from "./CheckPost";
 
 const Update = () => {
   const params = useParams();
@@ -17,31 +18,28 @@ const Update = () => {
   });
 
   const [data, setData] = useState([]);
-
-  // Other states
-  const [showModal, setShowModal] = useState(false); //To show the CheckPost Modal
-  const [showMessage, setShowMessage] = useState(false);
+  const [showCheckPost, setShowCheckPost] = useState(false);
   const [allCountries, setAllCountries] = useState([]); // To set countries list on dropdown
   const [ingredInput, setIngredInput] = useState([
     { quantity: "", ingredient: "" },
   ]); // For adding new ingredients
-  const [captcha, setCaptcha] = useState("");
-  const [inputCaptcha, setInputCaptcha] = useState("");
 
   //Axios get to fetch country names on dropdown list ***=> Edit Needed: Sort alphabetically.
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3001/recipies/${params.updaterecipe}`)
+      .then((res) => setInput(res.data))
+      .catch((err) => {
+        alert("There has been some error. " + err);
+      });
+  }, []);
+
   useEffect(() => {
     axios.get("https://restcountries.com/v3.1/all").then((res) => {
       setAllCountries(res.data);
     });
   }, []);
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:3001/recipies/${params.updaterecipe}`)
-      .then((res) => {
-        setData(res.data);
-      });
-  });
 
   //Sorting countries in ascending order
   let countryList = [];
@@ -54,17 +52,7 @@ const Update = () => {
 
   // On input fields change:
   const changeHandler = (e) => {
-    setInput({ ...data, [e.target.name]: e.target.value });
-  };
-
-  // On adding fields button
-  const addFields = (e) => {
-    e.preventDefault();
-    let objects = {
-      quantity: "",
-      ingredient: "",
-    };
-    setIngredInput([...ingredInput, objects]);
+    setInput({ ...input, [e.target.name]: e.target.value });
   };
 
   // On ingredient fields change:
@@ -72,65 +60,27 @@ const Update = () => {
     let fields = [...ingredInput];
     fields[index][e.target.name] = e.target.value; // Value setting up on individual set of form fields.
     setIngredInput(fields);
-    setData({ ...data, ingredients: ingredInput }); // Pushing the values of ingredients to ingredients states.
-  };
-
-  const modalHandler = () => {
-    setShowModal(!showModal);
-  };
-
-  //Passcode handler for post update, delete and captcha.
-  const passcodeHandler = (length) => {
-    let passcode = "";
-    let chars =
-      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    for (let i = 0; i < length; i++) {
-      passcode += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return passcode;
-  };
-
-  // Re-usable function of captcha making.
-  const captchaHandler = (e) => {
-    const captcha = passcodeHandler(6);
-    setCaptcha(captcha);
-  };
-
-  const setInputCaptchaHandler = (e) => {
-    setInputCaptcha(e.target.value);
-  };
-
-  //Because of asynchronous nature of state updating, we need to have componentDidUpdate method before submitting the button, in order to push passcode value into data state..
-  useEffect(() => {
-    const passcode = passcodeHandler(15);
-    setData({ ...data, passcode: passcode });
-    captchaHandler();
-  }, []);
-
-  const newCaptchaHandler = (e) => {
-    e.preventDefault();
-    captchaHandler();
-  };
-
-  const messageCloseHandler = () => {
-    setShowMessage(false);
-    window.location.reload();
+    setData({ ...input, ingredients: ingredInput }); // Pushing the values of ingredients to ingredients states.
   };
 
   // On submit button --> Opens the recipe review page (CheckPost).
-  const checkPostHandler = (e) => {
-    e.preventDefault();
-    if (captcha !== inputCaptcha) {
-      alert("The code did not match. Try again.");
-    } else {
-      // Get flag link rightaway and store it to state.
-      axios
-        .get(`https://restcountries.com/v3.1/name/${data.country}`)
-        .then((res) => {
-          setData({ ...input, flag: res.data[0].flags?.svg });
-        });
-      modalHandler();
-    }
+  // const checkPostHandler = (e) => {
+  //   e.preventDefault();
+  //   if (captcha !== inputCaptcha) {
+  //     alert("The code did not match. Try again.");
+  //   } else {
+  //     // Get flag link rightaway and store it to state.
+  //     axios
+  //       .get(`https://restcountries.com/v3.1/name/${input.country}`)
+  //       .then((res) => {
+  //         setData({ ...input, flag: res.data[0].flags?.svg });
+  //       });
+  //     modalHandler();
+  //   }
+  // };
+
+  const countryChangeHandler = (e) => {
+    setInput({ ...input, country: e.target.value });
   };
 
   // On form submit:
@@ -138,25 +88,40 @@ const Update = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/recipies", data);
-      modalHandler();
-      setShowMessage(true);
+      await axios.patch(
+        `http://localhost:3001/recipies/${params.updaterecipe}`,
+        input
+      );
     } catch (err) {
       alert("There has been some error. " + err);
     }
+  };
+  useEffect(() => {
+    axios
+      .get(`https://restcountries.com/v3.1/name/${input.country}`)
+      .then((res) => {
+        // setData({ ...input, flag: res.data[0].flags?.svg });
+        console.log(res.data);
+      });
+  }, []);
+
+  const checkPostHandler = (e) => {
+    e.preventDefault();
+    console.log("checked");
+    setShowCheckPost(true);
   };
 
   return (
     <section className="addNewWrapper">
       <h2>Update Recipe</h2>
-      <form onSubmit={checkPostHandler}>
+      <form>
         <div>
           <label htmlFor="title">Name of the Recipe</label>
           <input
             type="text"
             name="title"
             id="title"
-            value={data.title}
+            value={input.title}
             onChange={changeHandler}
             required
           ></input>
@@ -168,7 +133,7 @@ const Update = () => {
             type="text"
             name="author"
             id="author"
-            value={data.author}
+            value={input.author}
             onChange={changeHandler}
             required
           ></input>
@@ -179,7 +144,7 @@ const Update = () => {
           <select
             name="country"
             id="country"
-            value={data.country}
+            value={input.country}
             onChange={changeHandler}
             defaultValue={"default"}
             required
@@ -202,7 +167,7 @@ const Update = () => {
           <textarea
             name="description"
             id="description"
-            value={data.description}
+            value={input.description}
             onChange={changeHandler}
             required
           ></textarea>
@@ -212,7 +177,7 @@ const Update = () => {
           <select
             name="serving"
             id="serving"
-            value={data.serving}
+            value={input.serving}
             defaultValue={"default"}
             onChange={changeHandler}
           >
@@ -232,84 +197,31 @@ const Update = () => {
             type="url"
             name="image"
             id="image"
-            value={data.image}
+            value={input.image}
             placeholder="For ex. https://website.com/images/image.jpg"
             onChange={changeHandler}
             required
           />
         </div>
-        <label>Ingredients</label>
-
-        {/* Adding more ingredient fields on click */}
-        {ingredInput.map((ingredient, index) => {
-          return (
-            <div className="ingredients-wrapper" key={index}>
-              <div>
-                <label htmlFor="quantity">Quantity</label>
-                <input
-                  type="text"
-                  name="quantity"
-                  id="quantity"
-                  onChange={(e) => ingredChangeHandler(e, index)}
-                />
-              </div>
-              <div>
-                <label htmlFor="ingredient">Ingredient</label>
-                <input
-                  type="text"
-                  name="ingredient"
-                  id="ingredient"
-                  onChange={(e) => ingredChangeHandler(e, index)}
-                />
-              </div>
-            </div>
-          );
-        })}
-
-        <button className="btnGreen" onClick={addFields}>
-          &#65291; Add Ingredients
-        </button>
         <div>
           <label htmlFor="instruction">Instructions</label>
           <textarea
             name="instruction"
             id="instruction"
-            value={data.instruction}
+            value={input.instruction}
             onChange={changeHandler}
           ></textarea>
         </div>
-
-        {/*Captcha*/}
-        <div>
-          <label htmlFor="captcha">Insert the text shown below.</label>
-          <p className="captcha-txt">{captcha}</p>
-          <button onClick={newCaptchaHandler}>Reload</button>
-          <input
-            type="text"
-            id="captcha"
-            onChange={setInputCaptchaHandler}
-          ></input>
-        </div>
-
-        <button className="btnOrange" type="submit" id="submit">
-          Post Recipe
+        <button
+          className="btnOrange"
+          type="submit"
+          id="submit"
+          onClick={checkPostHandler}
+        >
+          Update Recipe
         </button>
-        {/* {showModal && (
-          <CheckPost
-            {...data}
-            closeHandler={modalHandler}
-            submitHandler={submitHandler}
-            true={false}
-          />
-        )}
-
-        {showMessage && (
-          <Message
-            passcode={data.passcode}
-            closeMessage={messageCloseHandler}
-          />
-        )} */}
       </form>
+      {showCheckPost && <CheckPost></CheckPost>}
     </section>
   );
 };
