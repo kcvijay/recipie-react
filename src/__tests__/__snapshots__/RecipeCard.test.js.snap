@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders when there is card details 1`] = `
+Array [
+  <div
+    className="recipe"
+  >
+    <img
+      alt="recipe this and that"
+      className="foodImage"
+    />
+    <div
+      className="recipe_details"
+    >
+      <p
+        className="recipe_name"
+      >
+        testing
+      </p>
+      <div
+        className="flag-wrapper"
+      >
+        <img
+          alt="country flag"
+          className="tinyFlag"
+        />
+        <p
+          className="flag-tooltip"
+        >
+          Origin: 
+        </p>
+      </div>
+      <div
+        className="recipe_subdetails"
+      >
+        <p
+          className="author"
+        >
+          Author: 
+          <span />
+        </p>
+      </div>
+      <a
+        href="/undefined"
+        onClick={[Function]}
+      >
+        View Recipe
+      </a>
+    </div>
+  </div>,
+  ".toJSON()",
+]
+`;

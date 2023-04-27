@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import "@testing-library/jest-dom";
 import Hero from "../Components/Hero";
 
 test("should render Hero component and check for video element", () => {
@@ -9,7 +8,7 @@ test("should render Hero component and check for video element", () => {
       <Hero />
     </BrowserRouter>
   );
-  const testId = screen.getByTestId("heroVideo");
-  expect(testId).toBeInTheDocument();
-  expect(testId).toHaveAttribute("autoPlay");
+  const videoElement = screen.getByTestId("video");
+  expect(videoElement).toBeInTheDocument();
+  expect(videoElement).toHaveAttribute("autoPlay");
 });

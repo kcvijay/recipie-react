@@ -415,6 +415,28 @@
           "ingredient": "Fresh lime juice"
         }
       ]
+    },
+    {
+      "id": "7d0e118f-c95a-4e19-8fa9-72ff772d660a",
+      "passcode": "0XJ4FrhuV8qx8ho",
+      "title": "Bangladeshi Chicken curry",
+      "author": "Sajal",
+      "country": "Bangladesh",
+      "flag": "https://flagcdn.com/bd.svg",
+      "description": "This is a recipe",
+      "serving": "For 6 People",
+      "image": "https://cdn-fjknb.nitrocdn.com/sYJEeGkHVBiftWuTfZsKGWIHyaufcHUS/assets/static/optimized/rev-612f1f8/wp-content/uploads/2022/02/Rice-recipe.jpg",
+      "instruction": "Lets cook rice and chicken curry.",
+      "ingredients": [
+        {
+          "quantity": "1 cup",
+          "ingredient": "Rice"
+        },
+        {
+          "quantity": "1 kg ",
+          "ingredient": "Chicken"
+        }
+      ]
     }
   ]
 }

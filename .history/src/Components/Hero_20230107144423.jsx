@@ -7,7 +7,6 @@ const Hero = () => {
   return (
     <div className={classes.hero}>
       <video
-        data-testid="heroVideo"
         autoPlay="autoplay"
         muted={true}
         loop={true}
