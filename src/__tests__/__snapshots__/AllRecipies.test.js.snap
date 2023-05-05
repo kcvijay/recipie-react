@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders when there is no recipe 1`] = `
+<div
+  className="fallback-wrapper"
+>
+  <h2>
+    There are no recipies.
+  </h2>
+  <a
+    className="btnOrange"
+    href="/addnewrecipe"
+    onClick={[Function]}
+  >
+    Add New Recipe
+  </a>
+</div>
+`;
